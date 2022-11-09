@@ -10,25 +10,25 @@ import androidx.navigation.fragment.findNavController
 import com.example.chips_development.R
 
 class MainFragment : Fragment() {
-
-//    todo: внеси изменения как в HelpFragment
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
+    private var button : Button? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view =  inflater.inflate(R.layout.fragment_main, container, false)
-        val button = view.findViewById<Button>(R.id.buttonToHelp)
-        button.setOnClickListener {
-            findNavController().navigate(R.id.action_mainFragment_to_helpFragment)
-        }
-
-        return view
+        return inflater.inflate(R.layout.fragment_main, container, false)
     }
 
-//    companion object {}
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        button = view.findViewById(R.id.buttonToHelp)
+        button?.setOnClickListener(buttonsClickListener)
+    }
+
+    private val  buttonsClickListener: View.OnClickListener = View.OnClickListener {
+        when (it.id) {
+            R.id.buttonToHelp -> findNavController().navigate(R.id.action_mainFragment_to_helpFragment)
+        }
+    }
 }
