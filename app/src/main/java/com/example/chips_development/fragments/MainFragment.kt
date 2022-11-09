@@ -1,16 +1,18 @@
 package com.example.chips_development.fragments
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.TextView
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.chips_development.R
 
 class MainFragment : Fragment() {
     private var button : Button? = null
+    private var textView : TextView? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -24,11 +26,23 @@ class MainFragment : Fragment() {
 
         button = view.findViewById(R.id.buttonToHelp)
         button?.setOnClickListener(buttonsClickListener)
+
+        textView = view.findViewById(R.id.textViewMain)
     }
 
     private val  buttonsClickListener: View.OnClickListener = View.OnClickListener {
         when (it.id) {
-            R.id.buttonToHelp -> findNavController().navigate(R.id.action_mainFragment_to_helpFragment)
+            R.id.buttonToHelp -> {
+                minusSeven()
+//                findNavController().navigate(R.id.action_mainFragment_to_helpFragment)
+            }
+        }
+    }
+
+    private fun minusSeven(){
+        for (i in 1..4) {
+            textView!!.text = i.toString()
+            Thread.sleep(1000)
         }
     }
 }
