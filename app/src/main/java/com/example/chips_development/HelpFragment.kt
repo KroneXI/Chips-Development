@@ -32,5 +32,5 @@ class HelpFragment : Fragment() {
         return view
     }
 
-//    companion object {}
+    companion object {}
 }
