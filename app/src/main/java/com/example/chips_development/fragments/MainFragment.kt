@@ -1,4 +1,4 @@
-package com.example.chips_development
+package com.example.chips_development.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,8 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.navigation.fragment.findNavController
+import com.example.chips_development.R
 
 class MainFragment : Fragment() {
+
+//    todo: внеси изменения как в HelpFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
