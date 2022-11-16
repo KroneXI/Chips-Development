@@ -6,8 +6,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.replace
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
-import com.example.chips_development.fragments.HelpFragment
-import com.example.chips_development.fragments.MainFragment
+import com.example.chips_development.fragments.*
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationBarView
 
@@ -16,11 +15,11 @@ class MainActivity : AppCompatActivity() {
 
     private var bottomNavigationMain: BottomNavigationView? = null
 
-    private val testFragment = MainFragment()
-    private val studyFragment = HelpFragment()
+    private val testFragment = TestFragment()
+    private val studyFragment = StudyFragment()
     private val mainFragment = MainFragment()
-    private val shopFragment = HelpFragment()
-    private val aboutFragment = MainFragment()
+    private val shopFragment = ShopsFragment()
+    private val aboutFragment = HelpFragment()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
