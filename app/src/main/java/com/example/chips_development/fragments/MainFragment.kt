@@ -12,7 +12,7 @@ import com.example.chips_development.R
 
 class MainFragment : Fragment() {
     private var button : Button? = null
-    private var textView : TextView? = null
+//    private var textView : TextView? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,22 +27,14 @@ class MainFragment : Fragment() {
         button = view.findViewById(R.id.buttonToHelp)
         button?.setOnClickListener(buttonsClickListener)
 
-        textView = view.findViewById(R.id.textViewMain)
+//        textView = view.findViewById(R.id.textViewMain)
     }
 
     private val  buttonsClickListener: View.OnClickListener = View.OnClickListener {
         when (it.id) {
             R.id.buttonToHelp -> {
-                minusSeven()
 //                findNavController().navigate(R.id.action_mainFragment_to_helpFragment)
             }
-        }
-    }
-
-    private fun minusSeven(){
-        for (i in 1..4) {
-            textView!!.text = i.toString()
-            Thread.sleep(1000)
         }
     }
 }

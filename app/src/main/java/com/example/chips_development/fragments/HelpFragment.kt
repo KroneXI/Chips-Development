@@ -29,7 +29,7 @@ class HelpFragment : Fragment() {
 
     private val buttonsClickListener: View.OnClickListener = View.OnClickListener {
         when (it.id) {
-            R.id.buttonToMain -> findNavController().navigate(R.id.action_helpFragment_to_mainFragment)
+//            R.id.buttonToMain -> findNavController().navigate(R.id.action_helpFragment_to_mainFragment)
         }
     }
 }
