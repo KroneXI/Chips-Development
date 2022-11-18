@@ -12,6 +12,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
+        android:textColor="@color/green_dark"
         app:layout_constraintBottom_toTopOf="@+id/shopsLink"
         app:layout_constraintEnd_toStartOf="@+id/shopsLogo"
         app:layout_constraintStart_toStartOf="parent"
