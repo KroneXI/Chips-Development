@@ -11,7 +11,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.chips_development.R
 
 class MainFragment : Fragment() {
-    private var button : Button? = null
+//    private var button : Button? = null
 //    private var textView : TextView? = null
 
     override fun onCreateView(
@@ -24,17 +24,17 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        button = view.findViewById(R.id.buttonToHelp)
-        button?.setOnClickListener(buttonsClickListener)
+//        button = view.findViewById(R.id.buttonToHelp)
+//        button?.setOnClickListener(buttonsClickListener)
 
 //        textView = view.findViewById(R.id.textViewMain)
     }
 
-    private val  buttonsClickListener: View.OnClickListener = View.OnClickListener {
-        when (it.id) {
-            R.id.buttonToHelp -> {
-//                findNavController().navigate(R.id.action_mainFragment_to_helpFragment)
-            }
-        }
-    }
+//    private val  buttonsClickListener: View.OnClickListener = View.OnClickListener {
+//        when (it.id) {
+//            R.id.buttonToHelp -> {
+////                findNavController().navigate(R.id.action_mainFragment_to_helpFragment)
+//            }
+//        }
+//    }
 }
