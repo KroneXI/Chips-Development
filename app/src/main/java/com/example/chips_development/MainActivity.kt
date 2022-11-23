@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         replaceFragment(mainFragment)
-
+//        bottomNavigationMain?.id =
 //        val navHostFragment = supportFragmentManager
 //            .findFragmentById(R.id.fragmentContainerView) as NavHostFragment
 //        navController = navHostFragment.navController
@@ -34,11 +34,21 @@ class MainActivity : AppCompatActivity() {
 
         bottomNavigationMain?.setOnNavigationItemSelectedListener {
             when(it.itemId){
-                R.id.tests -> replaceFragment(testFragment)
-                R.id.study -> replaceFragment(studyFragment)
-                R.id.main -> replaceFragment(mainFragment)
-                R.id.shops -> replaceFragment(shopFragment)
-                R.id.about -> replaceFragment(aboutFragment)
+                R.id.tests -> {
+                    replaceFragment(testFragment)
+                }
+                R.id.study -> {
+                    replaceFragment(studyFragment)
+                }
+                R.id.main -> {
+                    replaceFragment(mainFragment)
+                }
+                R.id.shops -> {
+                    replaceFragment(shopFragment)
+                }
+                R.id.about -> {
+                    replaceFragment(aboutFragment)
+                }
             }
             true
         }

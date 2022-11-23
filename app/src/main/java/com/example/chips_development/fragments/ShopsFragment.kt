@@ -77,7 +77,7 @@ class ShopsFragment : Fragment() {
         shopRecyclerView.layoutManager = LinearLayoutManager(context)
         shopRecyclerView.setHasFixedSize(true)
 
-        shopArrayList = arrayListOf<ShopsItems>()
+        shopArrayList = arrayListOf()
         getUserData()
     }
 
