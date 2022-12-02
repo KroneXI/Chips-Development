@@ -16,9 +16,9 @@
     </fragment>
     <fragment
         android:id="@+id/helpFragment"
-        android:name="com.example.chips_development.fragments.HelpFragment"
+        android:name="com.example.chips_development.fragments.AboutFragment"
         android:label="fragment_help"
-        tools:layout="@layout/fragment_help" >
+        tools:layout="@layout/fragment_about" >
         <action
             android:id="@+id/action_helpFragment_to_mainFragment"
             app:destination="@id/mainFragment" />

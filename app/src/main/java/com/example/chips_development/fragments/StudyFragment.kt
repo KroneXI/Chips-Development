@@ -1,27 +1,32 @@
 package com.example.chips_development.fragments
 
+import android.content.Context
 import android.os.Bundle
 import android.service.autofill.Validators.and
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.chips_development.MainActivity
 import com.example.chips_development.R
 import com.example.chips_development.adapters.ShopsAdapter
 import com.example.chips_development.adapters.StudyMainAdapter
 import com.example.chips_development.data_classes.ShopsItems
 import com.example.chips_development.data_classes.StudyMainItems
+import org.json.JSONArray
+import java.io.*
 
 
 class StudyFragment : Fragment() {
 
     private lateinit var studyMainRecyclerView: RecyclerView
-    private lateinit var themeMainArrayList: ArrayList<StudyMainItems>
-    lateinit var themeMainId: Array<String>
-//    lateinit var logoId: Array<Int>
+    private lateinit var studyMainArrayList: ArrayList<StudyMainItems>
+    private lateinit var studyMainAdapter: StudyMainAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,37 +38,66 @@ class StudyFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        themeMainId = arrayOf(
-            getString(R.string.theme1),
-            getString(R.string.theme1),
-            getString(R.string.theme1),
-            getString(R.string.theme1),
-            getString(R.string.theme1),
-            getString(R.string.theme1),
-            getString(R.string.theme1),
-            getString(R.string.theme1),
-            getString(R.string.theme1),
-            getString(R.string.theme1),
-            getString(R.string.theme1),
-            getString(R.string.theme1),
-            getString(R.string.theme1),
-            getString(R.string.theme1),
-            getString(R.string.theme1)
-        )
-
         studyMainRecyclerView = view.findViewById(R.id.recyclerViewStudyMain)
         studyMainRecyclerView.layoutManager = LinearLayoutManager(context)
         studyMainRecyclerView.setHasFixedSize(true)
 
-        themeMainArrayList = arrayListOf()
-        getUserData()
+        studyMainArrayList = ArrayList()
+
+        getJsonData("study.json")
+
+        studyMainAdapter = StudyMainAdapter(studyMainArrayList)
+        studyMainRecyclerView.adapter = studyMainAdapter
     }
 
-    private fun getUserData() {
-        for (i in themeMainId.indices) {
-            val themesMain = StudyMainItems(themeMainId[i])
-            themeMainArrayList.add(themesMain)
+    private fun getJsonData(fileName: String) {
+        val jsonString = context?.let { readFromFile(it, fileName) }
+        val jsonArray = JSONArray(jsonString)
+        for (i in 0 until jsonArray.length()) {
+            val jsonObj = jsonArray.getJSONObject(i)
+
+            studyMainArrayList.add(
+                StudyMainItems(
+                    name = jsonObj.getString("name"),
+                    themes = jsonObj.getString("themes"),
+                    state = jsonObj.getString("check"),
+                    lessonTextStart = jsonObj.getString("lessonTextStart"),
+                    lessonImageStart = jsonObj.getString("lessonImageStart"),
+                    lessonTextMid = jsonObj.getString("lessonTextMid"),
+                    lessonImageMid = jsonObj.getString("lessonImageMid")
+                )
+            )
         }
-        studyMainRecyclerView.adapter = StudyMainAdapter(themeMainArrayList)
+
+    }
+
+    private fun readFromFile(context: Context, fileName: String): String {
+        var ret = ""
+        var inputStream: InputStream? = null
+        try {
+            inputStream = context.openFileInput(fileName)
+            if (inputStream != null) {
+                val inputStreamReader = InputStreamReader(inputStream)
+                val bufferedReader = BufferedReader(inputStreamReader)
+                var receiveString: String? = ""
+                val stringBuilder = StringBuilder()
+                while (bufferedReader.readLine().also { receiveString = it } != null) {
+                    stringBuilder.append(receiveString)
+                }
+                ret = stringBuilder.toString()
+            }
+        } catch (e: FileNotFoundException) {
+            Log.e("login activity", "File not found: " + e.toString())
+        } catch (e: IOException) {
+            Log.e("login activity", "Can not read file: $e")
+        } finally {
+            try {
+                inputStream!!.close()
+            } catch (e: IOException) {
+                e.printStackTrace()
+            }
+        }
+        println(ret)
+        return ret
     }
 }

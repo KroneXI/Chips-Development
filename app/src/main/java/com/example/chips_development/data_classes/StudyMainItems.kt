@@ -1,3 +1,3 @@
 package com.example.chips_development.data_classes
 
-data class StudyMainItems(var themeMainName: String)
+data class StudyMainItems(var name: String, var themes: String, var state: String, val lessonTextStart: String, val lessonTextMid: String, val lessonImageStart: String, val lessonImageMid: String)

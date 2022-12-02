@@ -1,0 +1,134 @@
+[
+  {
+    "id": "1",
+    "name": "Введение",
+    "themes": "История вычислительной техники. Обзор современных платформ и их приложений",
+    "check": "false",
+    "lessonTextStart": "anything",
+    "lessonImageStart": "anything",
+    "lessonTextMid": "anything",
+    "lessonImageMid": "anything"
+  },
+  {
+    "id": "2",
+    "name": "Основы вычислительной техники. ТТЛ-логика",
+    "themes": "Обзор архитектурных решений для создания вычислительных устройств",
+    "check": "false",
+    "lessonTextStart": "anything",
+    "lessonImageStart": "anything",
+    "lessonTextMid": "anything",
+    "lessonImageMid": "anything"
+  },
+  {
+    "id": "3",
+    "name": "Вычислительное ядро. Организация памяти",
+    "themes": "Описание «нулевого» функционала ЭВМ. Принципы хранения и исполнения программ",
+    "check": "false",
+    "lessonTextStart": "anything",
+    "lessonImageStart": "anything",
+    "lessonTextMid": "anything",
+    "lessonImageMid": "anything"
+  },
+  {
+    "id": "4",
+    "name": "Регистры. Таймеры",
+    "themes": "Описание принципов обеспечения работы систем МК и их синхронизация во времени",
+    "check": "false",
+    "lessonTextStart": "anything",
+    "lessonImageStart": "anything",
+    "lessonTextMid": "anything",
+    "lessonImageMid": "anything"
+  },
+  {
+    "id": "5",
+    "name": "Порты ввода — вывода. Подключение",
+    "themes": "Описание организации работы с подключаемыми устройствами и правила сопряжения",
+    "check": "false"
+  },
+  {
+    "id": "6",
+    "name": "Шины связи. Высокоуровневые интерфейсы",
+    "themes": "Описание работы цифровых шин связи и устройства модулей для работы с подключаемыми устройствами",
+    "check": "false",
+    "lessonTextStart": "anything",
+    "lessonImageStart": "anything",
+    "lessonTextMid": "anything",
+    "lessonImageMid": "anything"
+  },
+  {
+    "id": "7",
+    "name": "Прерывания в МК",
+    "themes": "Объяснение концепции прерываний с примерами из интерфейсов связи",
+    "check": "false",
+    "lessonTextStart": "anything",
+    "lessonImageStart": "anything",
+    "lessonTextMid": "anything",
+    "lessonImageMid": "anything"
+  },
+  {
+    "id": "8",
+    "name": "Начало работы с STM32",
+    "themes": "Знакомство с современным МК семейства STM32. Установка IDE и CubeMX",
+    "check": "false",
+    "lessonTextStart": "anything",
+    "lessonImageStart": "anything",
+    "lessonTextMid": "anything",
+    "lessonImageMid": "anything"
+  },
+  {
+    "id": "9",
+    "name": "Создание проекта и конфигурация МК",
+    "themes": "Пример создания проекта для STM32 и конфигурации МК под проект",
+    "check": "false",
+    "lessonTextStart": "anything",
+    "lessonImageStart": "anything",
+    "lessonTextMid": "anything",
+    "lessonImageMid": "anything"
+  },
+  {
+    "id": "10",
+    "name": "Подключение датчиков",
+    "themes": "Демонстрация работы с датчиками разного типа",
+    "check": "false",
+    "lessonTextStart": "anything",
+    "lessonImageStart": "anything",
+    "lessonTextMid": "anything",
+    "lessonImageMid": "anything"
+  },
+  {
+    "id": "11",
+    "name": "Управление актуаторами",
+    "themes": "Рассматриваются аспекты подключения к МК исполнительных систем и математические нюансы",
+    "check": "false",
+    "lessonTextStart": "anything",
+    "lessonImageStart": "anything",
+    "lessonTextMid": "anything",
+    "lessonImageMid": "anything"
+  },
+  {
+    "id": "12",
+    "name": "Реализация системы управления роботом",
+    "themes": "Обучающимся предлагается собрать робота на 3D-принтере и оживить его",
+    "check": "false"
+  },
+  {
+    "id": "13",
+    "name": "Специальные функции различных серий STM32",
+    "themes": "Объяснения принципа выбора микроконтроллера для специальных задач",
+    "check": "false",
+    "lessonTextStart": "anything",
+    "lessonImageStart": "anything",
+    "lessonTextMid": "anything",
+    "lessonImageMid": "anything"
+  },
+  {
+    "id": "14",
+    "name": "Операционные системы для микроконтроллеров",
+    "themes": "ОС для МК. Основы работы с микроконтроллером под управлением FreeRTOS",
+    "check": "false",
+    "lessonTextStart": "anything",
+    "lessonImageStart": "anything",
+    "lessonTextMid": "anything",
+    "lessonImageMid": "anything"
+  }
+]

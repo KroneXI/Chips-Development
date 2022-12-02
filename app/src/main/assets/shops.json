@@ -1,0 +1,14 @@
+[
+  {
+    "id": "1",
+    "name": "name1",
+    "link": "https://www.chipdip.ru/",
+    "image": "https://s.rbk.ru/v1_companies_s3/resized/550xH/media/trademarks/86b2d8ca-8c46-4d25-a8e8-3336c7ade6f1.jpg"
+  },
+  {
+    "id": "2",
+    "name": "name2",
+    "link": "https://stackoverflow.com/questions/2201917/how-can-i-open-a-url-in-androids-web-browser-from-my-application",
+    "image": "https://thumb.tildacdn.com/tild3730-6439-4131-b461-353766363539/-/resize/600x/-/format/webp/pic_5.jpg"
+  }
+]

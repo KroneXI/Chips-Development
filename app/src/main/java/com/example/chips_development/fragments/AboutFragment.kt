@@ -1,15 +1,17 @@
 package com.example.chips_development.fragments
 
+import android.content.Context
+import android.content.Context.MODE_PRIVATE
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import androidx.navigation.fragment.findNavController
+import androidx.fragment.app.Fragment
 import com.example.chips_development.R
+import java.io.FileOutputStream
 
-class HelpFragment : Fragment() {
+class AboutFragment : Fragment() {
 
     private var button: Button? = null
 
@@ -17,7 +19,7 @@ class HelpFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_help, container, false)
+        return inflater.inflate(R.layout.fragment_about, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -29,7 +31,9 @@ class HelpFragment : Fragment() {
 
     private val buttonsClickListener: View.OnClickListener = View.OnClickListener {
         when (it.id) {
-//            R.id.buttonToMain -> findNavController().navigate(R.id.action_helpFragment_to_mainFragment)
+//            R.id.buttonToMain -> {
+//                context?.let { it1 -> save("test.txt", "a", it1) }
+//            }
         }
     }
 }
