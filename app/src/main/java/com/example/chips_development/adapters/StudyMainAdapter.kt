@@ -1,5 +1,7 @@
 package com.example.chips_development.adapters
 
+import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -7,17 +9,21 @@ import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.example.chips_development.R
 import com.example.chips_development.data_classes.StudyMainItems
 import com.squareup.picasso.Picasso
+import org.json.JSONArray
+import java.io.*
 
 
 class StudyMainAdapter(private val themeMainList: ArrayList<StudyMainItems>) :
     RecyclerView.Adapter<StudyMainAdapter.StudyMainsViewHolder>() {
 
     private val collapseMap = HashMap<String, Boolean>()
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StudyMainsViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(
@@ -60,7 +66,7 @@ class StudyMainAdapter(private val themeMainList: ArrayList<StudyMainItems>) :
             }
         }
 
-        holder.themeState.text = currentItem.state
+        holder.themeState.text = currentItem.check
         if (holder.themeState.text == "true") {
 //            holder.goToTheme.setBackgroundResource(R.color.black)
             holder.goToTheme.text = "Restart"
@@ -86,7 +92,49 @@ class StudyMainAdapter(private val themeMainList: ArrayList<StudyMainItems>) :
         holder.finishLesson.setOnClickListener {
             checkVisible(holder)
             holder.goToTheme.text = "Restart"
+
+            for (theme in themeMainList) {
+                if (theme == themeMainList[position]) {
+                    println(theme.name)
+                    val jsonString = readFromFile(holder.itemView.context, "study.json")
+                    val jsonArray = JSONArray(jsonString)
+                    var js = ""
+                    for (i in 0 until jsonArray.length()) {
+                        val jsonObj = jsonArray.getJSONObject(i)
+                        if (theme.name != jsonObj.getString("name")) {
+                            js += jsonObj.toString()
+                        }
+                        if (theme.name == jsonObj.getString("name")) {
+                            val string = jsonObj.toString()
+                            val result = string.replace(
+                                "\"false\"",
+                                "\"true\"",
+                                true
+                            )
+                            js += result
+                        }
+                    }
+                    val string = js
+
+                    val preResult = string.replace(
+                        "\"}{\"",
+                        "\"},{\"",
+                        true
+                    )
+                    val result = "[$preResult]"
+
+                    writeFileOnInternalStorage(file="study.json", data=result, context=holder.itemView.context)
+                }
+            }
         }
+    }
+
+    fun writeFileOnInternalStorage(file:String, data:String, context: Context) {
+        val fOut: FileOutputStream = context.openFileOutput(file,
+            AppCompatActivity.MODE_PRIVATE
+        )
+        fOut.write(data.toByteArray())
+        fOut.close()
     }
 
     private fun checkVisible(holder: StudyMainsViewHolder) {
@@ -128,5 +176,34 @@ class StudyMainAdapter(private val themeMainList: ArrayList<StudyMainItems>) :
         val lessonImageMid: ImageView = itemView.findViewById(R.id.lessonImageMid)
 
         val finishLesson: Button = itemView.findViewById(R.id.finishLesson)
+    }
+
+    private fun readFromFile(context: Context, fileName: String): String {
+        var ret = ""
+        var inputStream: InputStream? = null
+        try {
+            inputStream = context.openFileInput(fileName)
+            if (inputStream != null) {
+                val inputStreamReader = InputStreamReader(inputStream)
+                val bufferedReader = BufferedReader(inputStreamReader)
+                var receiveString: String? = ""
+                val stringBuilder = StringBuilder()
+                while (bufferedReader.readLine().also { receiveString = it } != null) {
+                    stringBuilder.append(receiveString)
+                }
+                ret = stringBuilder.toString()
+            }
+        } catch (e: FileNotFoundException) {
+            Log.e("login activity", "File not found: " + e.toString())
+        } catch (e: IOException) {
+            Log.e("login activity", "Can not read file: $e")
+        } finally {
+            try {
+                inputStream!!.close()
+            } catch (e: IOException) {
+                e.printStackTrace()
+            }
+        }
+        return ret
     }
 }

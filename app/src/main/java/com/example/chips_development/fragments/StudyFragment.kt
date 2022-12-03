@@ -2,21 +2,15 @@ package com.example.chips_development.fragments
 
 import android.content.Context
 import android.os.Bundle
-import android.service.autofill.Validators.and
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.chips_development.MainActivity
 import com.example.chips_development.R
-import com.example.chips_development.adapters.ShopsAdapter
 import com.example.chips_development.adapters.StudyMainAdapter
-import com.example.chips_development.data_classes.ShopsItems
 import com.example.chips_development.data_classes.StudyMainItems
 import org.json.JSONArray
 import java.io.*
@@ -29,8 +23,7 @@ class StudyFragment : Fragment() {
     private lateinit var studyMainAdapter: StudyMainAdapter
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.fragment_study, container, false)
     }
@@ -50,6 +43,12 @@ class StudyFragment : Fragment() {
         studyMainRecyclerView.adapter = studyMainAdapter
     }
 
+    override fun onDestroy() {
+        println("krone")
+        println(studyMainArrayList)
+        super.onDestroy()
+    }
+
     private fun getJsonData(fileName: String) {
         val jsonString = context?.let { readFromFile(it, fileName) }
         val jsonArray = JSONArray(jsonString)
@@ -60,7 +59,7 @@ class StudyFragment : Fragment() {
                 StudyMainItems(
                     name = jsonObj.getString("name"),
                     themes = jsonObj.getString("themes"),
-                    state = jsonObj.getString("check"),
+                    check = jsonObj.getString("check"),
                     lessonTextStart = jsonObj.getString("lessonTextStart"),
                     lessonImageStart = jsonObj.getString("lessonImageStart"),
                     lessonTextMid = jsonObj.getString("lessonTextMid"),
@@ -68,7 +67,6 @@ class StudyFragment : Fragment() {
                 )
             )
         }
-
     }
 
     private fun readFromFile(context: Context, fileName: String): String {
@@ -97,7 +95,6 @@ class StudyFragment : Fragment() {
                 e.printStackTrace()
             }
         }
-        println(ret)
         return ret
     }
 }

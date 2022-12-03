@@ -34,9 +34,9 @@ class ShopsAdapter(private val shopsList: ArrayList<ShopsItems>) :
 
     override fun onBindViewHolder(holder: ShopsViewHolder, position: Int) {
         val shopsItem = shopsList[position]
-        holder.shopsName.text = shopsItem.shopsName
-        holder.shopsLink.text = shopsItem.shopsLink
-        Picasso.get().load(shopsItem.shopsLogo).into(holder.shopsLogo)
+        holder.shopsName.text = shopsItem.name
+        holder.shopsLink.text = shopsItem.link
+        Picasso.get().load(shopsItem.image).into(holder.shopsLogo)
     }
 
     override fun getItemCount(): Int {

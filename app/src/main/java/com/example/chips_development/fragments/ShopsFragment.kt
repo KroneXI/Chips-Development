@@ -73,9 +73,9 @@ class ShopsFragment : Fragment() {
 
             shopList.add(
                 ShopsItems(
-                    shopsName = jsonObj.getString("name"),
-                    shopsLink = jsonObj.getString("link"),
-                    shopsLogo = jsonObj.getString("image")
+                    name = jsonObj.getString("name"),
+                    link = jsonObj.getString("link"),
+                    image = jsonObj.getString("image")
                 )
             )
         }
