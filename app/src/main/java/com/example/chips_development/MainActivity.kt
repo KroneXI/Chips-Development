@@ -6,12 +6,13 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.chips_development.fragments.*
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.ismaeldivita.chipnavigation.ChipNavigationBar
 import java.io.FileOutputStream
 
 
 class MainActivity : AppCompatActivity() {
 
-    private var bottomNavigationMain: BottomNavigationView? = null
+    private var bottomNavigationMain: ChipNavigationBar? = null
 
     private val testFragment = TestFragment()
     private val studyFragment = StudyFragment()
@@ -19,29 +20,28 @@ class MainActivity : AppCompatActivity() {
     private val shopFragment = ShopsFragment()
     private val aboutFragment = AboutFragment()
 
-    var prefs: SharedPreferences? = null
+    private var prefs: SharedPreferences? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        prefs = getSharedPreferences("com.example.chips_development", MODE_PRIVATE);
+        prefs = getSharedPreferences("com.example.chips_development", MODE_PRIVATE)
 
-//        writeFileOnInternalStorage()
-
-        replaceFragment(mainFragment)
         bottomNavigationMain = findViewById(R.id.bottomNavigationMain)
+        replaceFragment(mainFragment)
+        bottomNavigationMain?.setItemSelected(R.id.main)
 
-        bottomNavigationMain?.setOnNavigationItemSelectedListener {
-            when (it.itemId) {
-                R.id.tests -> {
-                    replaceFragment(testFragment)
+        bottomNavigationMain?.setOnItemSelectedListener {
+            when (it) {
+                R.id.main -> {
+                    replaceFragment(mainFragment)
                 }
                 R.id.study -> {
                     replaceFragment(studyFragment)
                 }
-                R.id.main -> {
-                    replaceFragment(mainFragment)
+                R.id.tests -> {
+                    replaceFragment(testFragment)
                 }
                 R.id.shops -> {
                     replaceFragment(shopFragment)
@@ -50,7 +50,7 @@ class MainActivity : AppCompatActivity() {
                     replaceFragment(aboutFragment)
                 }
             }
-            true
+//            true
         }
     }
 
@@ -201,64 +201,126 @@ class MainActivity : AppCompatActivity() {
                     "    \"lessonImageMid\": \"https://thumb.tildacdn.com/tild3730-6439-4131-b461-353766363539/-/resize/600x/-/format/webp/pic_5.jpg\"\n" +
                     "  }\n" +
                     "]")
+            writeFileOnInternalStorage(file = "test.json", data = "[\n" +
+                    "  {\n" +
+                    "    \"status\": \"false(не пройдено)\",\n" +
+                    "    \"theme_name\": \"Введение\",\n" +
+                    "    \"question1\": \"Информация - это:\",\n" +
+                    "    \"status_question1\": \"false\",\n" +
+                    "    \"var1_question1\": \"Совокупность сведений, знаний, которые актуализируемы (получаемы, передаваемы, преобразуемы, сжимаемы и/или регистрируемы) с помощью некоторых знаков.\",\n" +
+                    "    \"status_var1_question1\": \"true\",\n" +
+                    "    \"var2_question1\": \"Точный набор инструкций, описывающих последовательность действий некоторого исполнителя.\",\n" +
+                    "    \"status_var2_question1\": \"false\",\n" +
+                    "    \"var3_question1\": \"Поток данных подсистемы МК\",\n" +
+                    "    \"status_var3_question1\": \"false\",\n" +
+                    "    \"var4_question1\": \"Знания относительно фактов, событий, вещей, идей и понятий, которые в определённом контексте имеют конкретный смысл.\",\n" +
+                    "    \"status_var4_question1\": \"false\",\n" +
+                    "    \"question2\": \"Алгоритм – это:\",\n" +
+                    "    \"status_question2\": \"false\",\n" +
+                    "    \"var1_question2\": \"Сведения независимо от формы их представления.\",\n" +
+                    "    \"status_var1_question2\": \"false\",\n" +
+                    "    \"var2_question2\": \"Это точный набор инструкций, описывающих последовательность действий некоторого исполнителя для достижения результата, решения некоторой задачи.\",\n" +
+                    "    \"status_var2_question2\": \"true\",\n" +
+                    "    \"var3_question2\": \"Линия приема и передачи данных.\",\n" +
+                    "    \"status_var3_question2\": \"false\",\n" +
+                    "    \"var4_question2\": \"Это точная, однозначная, конечная последовательность вычислений для решения конкретной задачи или группы задач за конечное число шагов.\",\n" +
+                    "    \"status_var4_question2\": \"false\",\n" +
+                    "    \"question3\": \"К общим признакам встраиваемых микроконтроллеров можно отнести:\",\n" +
+                    "    \"status_question3\": \"false\",\n" +
+                    "    \"var1_question3\": \"Компактные размеры и наличие радиаторов для эффективного отвода тепла.\",\n" +
+                    "    \"status_var1_question3\": \"false\",\n" +
+                    "    \"var2_question3\": \"Ортогональность внутренних регистров микроконтроллера, позволяющую оптимизировать структуру программы.\",\n" +
+                    "    \"status_var2_question3\": \"false\",\n" +
+                    "    \"var3_question3\": \"Все необходимые ресурсы (память, устройства ввода-вывода и т.д.) располагаются на одном кристалле с процессорным ядром.\",\n" +
+                    "    \"status_var3_question3\": \"true\",\n" +
+                    "    \"var4_question3\": \"Такой микроконтроллер имеет архитектуру, облегчающую работу с вещественными числами.\",\n" +
+                    "    \"status_var4_question3\": \"false\",\n" +
+                    "    \"question4\": \"В состав встраиваемых микроконтроллеров обычно входят:\",\n" +
+                    "    \"status_question4\": \"false\",\n" +
+                    "    \"var1_question4\": \"Устройства индикации и средства ручной подстройки тактовой частоты.\",\n" +
+                    "    \"status_var1_question4\": \"false\",\n" +
+                    "    \"var2_question4\": \"Контроллеры блока питания.\",\n" +
+                    "    \"status_var2_question4\": \"false\",\n" +
+                    "    \"var3_question4\": \"Декодеры сигналов, преобразующие полутороразрядный код в ШИМ сигнал.\",\n" +
+                    "    \"status_var3_question4\": \"false\",\n" +
+                    "    \"var4_question4\": \"Средства ввода-вывода данных и таймеры, фиксирующие число командных циклов.\",\n" +
+                    "    \"status_var4_question4\": \"true\",\n" +
+                    "    \"question5\": \"Типичным примером микроконтроллера с внешней памятью является:\",\n" +
+                    "    \"status_question5\": \"false\",\n" +
+                    "    \"var1_question5\": \"Контроллер жесткого диска.\",\n" +
+                    "    \"status_var1_question5\": \"true\",\n" +
+                    "    \"var2_question5\": \"Контроллер управления прерываниями.\",\n" +
+                    "    \"status_var2_question5\": \"false\",\n" +
+                    "    \"var3_question5\": \"Контроллер блока питания.\",\n" +
+                    "    \"status_var3_question5\": \"false\",\n" +
+                    "    \"var4_question5\": \"Контроллер клавиатуры.\",\n" +
+                    "    \"status_var4_question5\": \"false\"\n" +
+                    "  },\n" +
+                    "  {\n" +
+                    "    \"status\": \"false(не пройдено)\",\n" +
+                    "    \"theme_name\": \"Основы вычислительной техники. ТТЛ-логика\",\n" +
+                    "    \"question1\": \"Микропроцессорная система какого типа не обеспечивает управление внешними устройствами?\",\n" +
+                    "    \"status_question1\": \"true\",\n" +
+                    "    \"var1_question1\": \"Компьютер.\",\n" +
+                    "    \"status_var1_question1\": \"false\",\n" +
+                    "    \"var2_question1\": \"Все типы обеспечивают управление внешними устройствами.\",\n" +
+                    "    \"status_var2_question1\": \"true\",\n" +
+                    "    \"var3_question1\": \"Микроконтроллер.\",\n" +
+                    "    \"status_var3_question1\": \"false\",\n" +
+                    "    \"var4_question1\": \"Контроллер.\",\n" +
+                    "    \"status_var4_question1\": \"false\",\n" +
+                    "    \"question2\": \"Какая структура шин адреса и данных обеспечивает большее быстродействие?\",\n" +
+                    "    \"status_question2\": \"false\",\n" +
+                    "    \"var1_question2\": \"Быстродействие от структуры не зависит.\",\n" +
+                    "    \"status_var1_question2\": \"false\",\n" +
+                    "    \"var2_question2\": \"Двунаправленная.\",\n" +
+                    "    \"status_var2_question2\": \"false\",\n" +
+                    "    \"var3_question2\": \"Немультиплексированная.\",\n" +
+                    "    \"status_var3_question2\": \"true\",\n" +
+                    "    \"var4_question2\": \"Мультиплексированная.\",\n" +
+                    "    \"status_var4_question2\": \"false\",\n" +
+                    "    \"question3\": \"К какой группе относятся команды сдвига кодов?\",\n" +
+                    "    \"status_question3\": \"false\",\n" +
+                    "    \"var1_question3\": \"Команды переходов.\",\n" +
+                    "    \"status_var1_question3\": \"false\",\n" +
+                    "    \"var2_question3\": \"Команды пересылки.\",\n" +
+                    "    \"status_var2_question3\": \"false\",\n" +
+                    "    \"var3_question3\": \"Арифметические команды.\",\n" +
+                    "    \"status_var3_question3\": \"false\",\n" +
+                    "    \"var4_question3\": \"Логические команды.\",\n" +
+                    "    \"status_var4_question3\": \"true\",\n" +
+                    "    \"question4\": \"Какой тип логической функции позволяет реализовать объединение «квазидвунаправленных» выходов микроконтроллера?\",\n" +
+                    "    \"status_question4\": \"false\",\n" +
+                    "    \"var1_question4\": \"«И«\",\n" +
+                    "    \"status_var1_question4\": \"true\",\n" +
+                    "    \"var2_question4\": \"Сложение по модулю 2\",\n" +
+                    "    \"status_var2_question4\": \"false\",\n" +
+                    "    \"var3_question4\": \"«ИЛИ«\",\n" +
+                    "    \"status_var3_question4\": \"false\",\n" +
+                    "    \"var4_question4\": \"Константа «1«\",\n" +
+                    "    \"status_var4_question4\": \"true\",\n" +
+                    "    \"question5\": \"Выберите неверное утверждение:\",\n" +
+                    "    \"status_question5\": \"false\",\n" +
+                    "    \"var1_question5\": \"PCI — быстродействующая шина.\",\n" +
+                    "    \"status_var1_question5\": \"false\",\n" +
+                    "    \"var2_question5\": \"PCI — немультиплексированная шина.\",\n" +
+                    "    \"status_var2_question5\": \"true\",\n" +
+                    "    \"var3_question5\": \"На шине PCI возможен синхронный и асинхронный обмен.\",\n" +
+                    "    \"status_var3_question5\": \"false\",\n" +
+                    "    \"var4_question5\": \"На шине PCI предусмотрена автоконфигурация.\",\n" +
+                    "    \"status_var4_question5\": \"false\"\n" +
+                    "  }\n" +
+                    "]")
         }
     }
 
     private fun replaceFragment(fragment: Fragment) {
-        if (fragment != null) {
-            val transaction = supportFragmentManager.beginTransaction()
-            transaction.replace(R.id.fragmentContainerView, fragment)
-            transaction.commit()
-        }
+        supportFragmentManager.beginTransaction().replace(R.id.fragmentContainerView, fragment).commit()
     }
 
-    fun writeFileOnInternalStorage(file:String, data:String) {
+    private fun writeFileOnInternalStorage(file:String, data:String) {
         val fOut: FileOutputStream = baseContext.openFileOutput(file, MODE_PRIVATE)
         fOut.write(data.toByteArray())
         fOut.close()
     }
-
-//    fun readFileOnInternalStorage(): String {
-//        var fileInputStream: FileInputStream? = null
-//        fileInputStream = openFileInput("text.txt")
-//        val inputStreamReader = InputStreamReader(fileInputStream)
-//        val bufferedReader = BufferedReader(inputStreamReader)
-//        val stringBuilder: StringBuilder = StringBuilder()
-//        var text: String? = null
-//        while (run {
-//                text = bufferedReader.readLine()
-//                text
-//            } != null) {
-//            stringBuilder.append(text)
-//        }
-//        return stringBuilder.toString()
-//    }
-
-//    fun getJsonDataFromAsset(context: Context, fileName: String, shopList: ArrayList<ShopsItems>) {
-//        var input: InputStream? = null
-//        try {
-//            when (fileName) {
-//                "shops.json" -> {
-//                    input = context.assets.open(fileName)
-//                    val jsonArray = JSONArray(input.bufferedReader().use { it.readText() })
-//                    for (i in 0 until jsonArray.length()) {
-//                        val jsonObj = jsonArray.getJSONObject(i)
-//
-//                        shopList.add(
-//                            ShopsItems(
-//                                shopsName = jsonObj.getString("name"),
-//                                shopsLink = jsonObj.getString("link"),
-//                                shopsLogo = jsonObj.getString("image")
-//                            )
-//                        )
-//                    }
-//                }
-//                else -> Toast.makeText(context, "foo", Toast.LENGTH_SHORT).show()
-//            }
-//        } catch (ioException: IOException) {
-//            ioException.printStackTrace()
-//        } finally {
-//            input?.close()
-//        }
-//    }
 }

@@ -108,7 +108,6 @@ class ShopsFragment : Fragment() {
                 e.printStackTrace()
             }
         }
-        println(ret)
         return ret
     }
 }

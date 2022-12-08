@@ -18,15 +18,26 @@
         app:layout_constraintTop_toTopOf="parent"
         app:navGraph="@navigation/main_nav" />
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
+    <com.ismaeldivita.chipnavigation.ChipNavigationBar
         android:id="@+id/bottomNavigationMain"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#00000000"
+        android:background="@color/white_material"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fragmentContainerView"
-        app:menu="@menu/main_navigation_menu" />
+        app:cnb_menuResource="@menu/chip_navigation_bar_menu" />
+
+<!--    <com.google.android.material.bottomnavigation.BottomNavigationView-->
+<!--        android:id="@+id/bottomNavigationMain"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:background="@color/white_material"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/fragmentContainerView"-->
+<!--        app:menu="@menu/main_navigation_menu" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

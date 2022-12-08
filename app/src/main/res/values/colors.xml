@@ -20,4 +20,5 @@
     <color name="grey_material">#7B7C81</color>
     <color name="white_material">#D4DBE2</color>
     <color name="crayola_material">#EFBF32</color>
+    <color name="crayola_material1">#50EFBF32</color>
 </resources>

@@ -98,7 +98,6 @@ class StudyMainAdapter(private val themeMainList: ArrayList<StudyMainItems>) :
 
             for (theme in themeMainList) {
                 if (theme == themeMainList[position]) {
-                    println(theme.name)
                     val jsonString = readFromFile(holder.itemView.context, "study.json")
                     val jsonArray = JSONArray(jsonString)
                     var js = ""

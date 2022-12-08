@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cnb_unselectedColor="@color/grey_material">
+
+    <item
+        android:id="@+id/study"
+        android:icon="@drawable/study"
+        android:title="Теория"
+        app:cnb_backgroundColor="@color/crayola_material"
+        app:cnb_textColor="@color/black_material"
+        app:cnb_iconColor="@color/black_material" />
+    <item
+        android:id="@+id/tests"
+        android:icon="@drawable/test"
+        android:title="Тестирование"
+        app:cnb_backgroundColor="@color/crayola_material"
+        app:cnb_textColor="@color/black_material"
+        app:cnb_iconColor="@color/black_material" />
+    <item
+        android:id="@+id/main"
+        android:icon="@drawable/home"
+        android:title="Главная"
+        app:cnb_backgroundColor="@color/crayola_material"
+        app:cnb_textColor="@color/black_material"
+        app:cnb_iconColor="@color/black_material" />
+    <item
+        android:id="@+id/shops"
+        android:icon="@drawable/shops"
+        android:title="Магазины"
+        app:cnb_backgroundColor="@color/crayola_material"
+        app:cnb_textColor="@color/black_material"
+        app:cnb_iconColor="@color/black_material" />
+    <item
+        android:id="@+id/about"
+        android:icon="@drawable/about"
+        android:title="Информация"
+        app:cnb_backgroundColor="@color/crayola_material"
+        app:cnb_textColor="@color/black_material"
+        app:cnb_iconColor="@color/black_material" />
+</menu>

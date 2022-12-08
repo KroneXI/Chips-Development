@@ -44,8 +44,6 @@ class StudyFragment : Fragment() {
     }
 
     override fun onDestroy() {
-        println("krone")
-        println(studyMainArrayList)
         super.onDestroy()
     }
 

@@ -9,18 +9,5 @@
         android:id="@+id/mainFragment"
         android:name="com.example.chips_development.fragments.MainFragment"
         android:label="fragment_main"
-        tools:layout="@layout/fragment_main" >
-        <action
-            android:id="@+id/action_mainFragment_to_helpFragment"
-            app:destination="@id/helpFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/helpFragment"
-        android:name="com.example.chips_development.fragments.AboutFragment"
-        android:label="fragment_help"
-        tools:layout="@layout/fragment_about" >
-        <action
-            android:id="@+id/action_helpFragment_to_mainFragment"
-            app:destination="@id/mainFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_main" />
 </navigation>
