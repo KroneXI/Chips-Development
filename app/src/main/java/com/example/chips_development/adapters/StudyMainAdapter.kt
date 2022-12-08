@@ -70,9 +70,11 @@ class StudyMainAdapter(private val themeMainList: ArrayList<StudyMainItems>) :
         if (holder.themeState.text == "true") {
 //            holder.goToTheme.setBackgroundResource(R.color.black)
             holder.goToTheme.text = "Restart"
+            holder.stateIcon.setImageResource(R.drawable.ic_baseline_circle_green)
         } else {
 //            holder.goToTheme.setBackgroundResource(R.color.white)
             holder.goToTheme.text = "Start"
+            holder.stateIcon.setImageResource(R.drawable.ic_baseline_circle_grey)
         }
         holder.lessonTextStart.isVisible = false
         holder.lessonTextMid.isVisible = false
@@ -92,6 +94,7 @@ class StudyMainAdapter(private val themeMainList: ArrayList<StudyMainItems>) :
         holder.finishLesson.setOnClickListener {
             checkVisible(holder)
             holder.goToTheme.text = "Restart"
+            holder.stateIcon.setImageResource(R.drawable.ic_baseline_circle_green)
 
             for (theme in themeMainList) {
                 if (theme == themeMainList[position]) {
@@ -176,6 +179,7 @@ class StudyMainAdapter(private val themeMainList: ArrayList<StudyMainItems>) :
         val lessonImageMid: ImageView = itemView.findViewById(R.id.lessonImageMid)
 
         val finishLesson: Button = itemView.findViewById(R.id.finishLesson)
+        val stateIcon: ImageView = itemView.findViewById(R.id.stateIcon)
     }
 
     private fun readFromFile(context: Context, fileName: String): String {

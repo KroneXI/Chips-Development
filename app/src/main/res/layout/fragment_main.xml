@@ -6,15 +6,29 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:gravity="center"
     android:padding="15dp"
-    android:background="@color/green_light"
     tools:context=".fragments.MainFragment">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_weight="1"
         android:layout_marginBottom="5dp"
-        android:layout_weight="2">
+        android:background="@drawable/background">
+
+        <TextView
+            android:id="@+id/appPercentProgress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="100%"
+            android:textColor="@color/black_material"
+            android:textSize="65sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ProgressBar
             android:id="@+id/progress_bar"
@@ -25,30 +39,241 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:progress="60" />
+            tools:progress="90" />
 
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="15dp"
+        android:gravity="center"
         android:layout_marginBottom="5dp"
         android:background="@drawable/background">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/green_dark"
-            android:text="Ваш прогресс в выполнении тестов"/>
+            android:textColor="@color/black_material"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:text="Прогресс изучения теоретического материала" />
 
         <ProgressBar
             android:id="@+id/verticalProgressbar"
             style="@style/my_progressbar_style_ver"
             android:layout_width="match_parent"
             android:layout_height="20dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="3dp"
             android:layout_gravity="center_vertical" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:orientation="vertical"
+            android:layout_gravity="end">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="end">
+
+                <TextView
+                    android:id="@+id/theme1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_othet"
+                    android:padding="@dimen/pad_text"
+                    android:layout_margin="1dp"
+                    android:textColor="@color/white_material"
+                    android:textSize="@dimen/text"
+                    android:textStyle="bold"
+                    android:text="Введение"/>
+
+                <TextView
+                    android:id="@+id/theme2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dp"
+                    android:background="@drawable/background_othet"
+                    android:padding="@dimen/pad_text"
+                    android:text="Основы вычислительной техники"
+                    android:textColor="@color/white_material"
+                    android:textSize="@dimen/text"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/theme3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_othet"
+                    android:padding="@dimen/pad_text"
+                    android:layout_margin="1dp"
+                    android:textColor="@color/white_material"
+                    android:textSize="@dimen/text"
+                    android:textStyle="bold"
+                    android:text="Вычислительное ядро"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="end">
+
+                <TextView
+                    android:id="@+id/theme4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_othet"
+                    android:padding="@dimen/pad_text"
+                    android:layout_margin="1dp"
+                    android:textColor="@color/white_material"
+                    android:textSize="@dimen/text"
+                    android:textStyle="bold"
+                    android:text="Регистры. Таймеры"/>
+                <TextView
+                    android:id="@+id/theme5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_othet"
+                    android:padding="@dimen/pad_text"
+                    android:layout_margin="1dp"
+                    android:textColor="@color/white_material"
+                    android:textSize="@dimen/text"
+                    android:textStyle="bold"
+                    android:text="Порты ввода — вывода"/>
+                <TextView
+                    android:id="@+id/theme6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_othet"
+                    android:padding="@dimen/pad_text"
+                    android:layout_margin="1dp"
+                    android:textColor="@color/white_material"
+                    android:textSize="@dimen/text"
+                    android:textStyle="bold"
+                    android:text="Шины связи"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="end">
+
+                <TextView
+                    android:id="@+id/theme7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_othet"
+                    android:padding="@dimen/pad_text"
+                    android:layout_margin="1dp"
+                    android:textColor="@color/white_material"
+                    android:textSize="@dimen/text"
+                    android:textStyle="bold"
+                    android:text="Прерывания в МК"/>
+                <TextView
+                    android:id="@+id/theme8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_othet"
+                    android:padding="@dimen/pad_text"
+                    android:layout_margin="1dp"
+                    android:textColor="@color/white_material"
+                    android:textSize="@dimen/text"
+                    android:textStyle="bold"
+                    android:text="Начало работы с STM32"/>
+                <TextView
+                    android:id="@+id/theme9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_othet"
+                    android:padding="@dimen/pad_text"
+                    android:layout_margin="1dp"
+                    android:textColor="@color/white_material"
+                    android:textSize="@dimen/text"
+                    android:textStyle="bold"
+                    android:text="Проект и конфигурация МК"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="end">
+
+                <TextView
+                    android:id="@+id/theme10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_othet"
+                    android:padding="@dimen/pad_text"
+                    android:layout_margin="1dp"
+                    android:textColor="@color/white_material"
+                    android:textSize="@dimen/text"
+                    android:textStyle="bold"
+                    android:text="Подключение датчиков"/>
+                <TextView
+                    android:id="@+id/theme11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_othet"
+                    android:padding="@dimen/pad_text"
+                    android:layout_margin="1dp"
+                    android:textColor="@color/white_material"
+                    android:textSize="@dimen/text"
+                    android:textStyle="bold"
+                    android:text="Управление актуаторами"/>
+                <TextView
+                    android:id="@+id/theme12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_othet"
+                    android:padding="@dimen/pad_text"
+                    android:layout_margin="1dp"
+                    android:textColor="@color/white_material"
+                    android:textSize="@dimen/text"
+                    android:textStyle="bold"
+                    android:text="Управления роботом"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="end">
+
+                <TextView
+                    android:id="@+id/theme13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_othet"
+                    android:padding="@dimen/pad_text"
+                    android:layout_margin="1dp"
+                    android:textColor="@color/white_material"
+                    android:textSize="@dimen/text"
+                    android:textStyle="bold"
+                    android:text="Специальные функции STM32"/>
+                <TextView
+                    android:id="@+id/theme14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_othet"
+                    android:padding="@dimen/pad_text"
+                    android:layout_margin="1dp"
+                    android:textColor="@color/white_material"
+                    android:textSize="@dimen/text"
+                    android:textStyle="bold"
+                    android:text="ОС для микроконтроллеров"/>
+            </LinearLayout>
+
+        </LinearLayout>
 
     </LinearLayout>
 
@@ -56,13 +281,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="15dp"
+        android:gravity="center"
+        android:layout_marginBottom="5dp"
         android:background="@drawable/background">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/green_dark"
+            android:textColor="@color/black_material"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
             android:text="Ваш прогресс в самостоятельном обучении"/>
 
         <ProgressBar
@@ -70,9 +300,223 @@
             style="@style/my_progressbar_style_ver"
             android:layout_width="match_parent"
             android:layout_height="20dp"
-
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="3dp"
             android:layout_gravity="center_vertical" />
 
-    </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:orientation="vertical"
+            android:layout_gravity="end">
 
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="end">
+
+                <TextView
+                    android:id="@+id/test1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_othet"
+                    android:padding="@dimen/pad_text"
+                    android:layout_margin="1dp"
+                    android:textColor="@color/white_material"
+                    android:textSize="@dimen/text"
+                    android:textStyle="bold"
+                    android:text="Введение"/>
+
+                <TextView
+                    android:id="@+id/test2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dp"
+                    android:background="@drawable/background_othet"
+                    android:padding="@dimen/pad_text"
+                    android:text="Основы вычислительной техники"
+                    android:textColor="@color/white_material"
+                    android:textSize="@dimen/text"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/test3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_othet"
+                    android:padding="@dimen/pad_text"
+                    android:layout_margin="1dp"
+                    android:textColor="@color/white_material"
+                    android:textSize="@dimen/text"
+                    android:textStyle="bold"
+                    android:text="Вычислительное ядро"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="end">
+
+                <TextView
+                    android:id="@+id/test4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_othet"
+                    android:padding="@dimen/pad_text"
+                    android:layout_margin="1dp"
+                    android:textColor="@color/white_material"
+                    android:textSize="@dimen/text"
+                    android:textStyle="bold"
+                    android:text="Регистры. Таймеры"/>
+                <TextView
+                    android:id="@+id/test5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_othet"
+                    android:padding="@dimen/pad_text"
+                    android:layout_margin="1dp"
+                    android:textColor="@color/white_material"
+                    android:textSize="@dimen/text"
+                    android:textStyle="bold"
+                    android:text="Порты ввода — вывода"/>
+                <TextView
+                    android:id="@+id/test6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_othet"
+                    android:padding="@dimen/pad_text"
+                    android:layout_margin="1dp"
+                    android:textColor="@color/white_material"
+                    android:textSize="@dimen/text"
+                    android:textStyle="bold"
+                    android:text="Шины связи"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="end">
+
+                <TextView
+                    android:id="@+id/test7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_othet"
+                    android:padding="@dimen/pad_text"
+                    android:layout_margin="1dp"
+                    android:textColor="@color/white_material"
+                    android:textSize="@dimen/text"
+                    android:textStyle="bold"
+                    android:text="Прерывания в МК"/>
+                <TextView
+                    android:id="@+id/test8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_othet"
+                    android:padding="@dimen/pad_text"
+                    android:layout_margin="1dp"
+                    android:textColor="@color/white_material"
+                    android:textSize="@dimen/text"
+                    android:textStyle="bold"
+                    android:text="Начало работы с STM32"/>
+                <TextView
+                    android:id="@+id/test9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_othet"
+                    android:padding="@dimen/pad_text"
+                    android:layout_margin="1dp"
+                    android:textColor="@color/white_material"
+                    android:textSize="@dimen/text"
+                    android:textStyle="bold"
+                    android:text="Проект и конфигурация МК"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="end">
+
+                <TextView
+                    android:id="@+id/test10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_othet"
+                    android:padding="@dimen/pad_text"
+                    android:layout_margin="1dp"
+                    android:textColor="@color/white_material"
+                    android:textSize="@dimen/text"
+                    android:textStyle="bold"
+                    android:text="Подключение датчиков"/>
+                <TextView
+                    android:id="@+id/test11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_othet"
+                    android:padding="@dimen/pad_text"
+                    android:layout_margin="1dp"
+                    android:textColor="@color/white_material"
+                    android:textSize="@dimen/text"
+                    android:textStyle="bold"
+                    android:text="Управление актуаторами"/>
+                <TextView
+                    android:id="@+id/test12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_othet"
+                    android:padding="@dimen/pad_text"
+                    android:layout_margin="1dp"
+                    android:textColor="@color/white_material"
+                    android:textSize="@dimen/text"
+                    android:textStyle="bold"
+                    android:text="Управления роботом"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="end">
+
+                <TextView
+                    android:id="@+id/test13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_othet"
+                    android:padding="@dimen/pad_text"
+                    android:layout_margin="1dp"
+                    android:textColor="@color/white_material"
+                    android:textSize="@dimen/text"
+                    android:textStyle="bold"
+                    android:text="Специальные функции STM32"/>
+                <TextView
+                    android:id="@+id/test14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_othet"
+                    android:padding="@dimen/pad_text"
+                    android:layout_margin="1dp"
+                    android:textColor="@color/white_material"
+                    android:textSize="@dimen/text"
+                    android:textStyle="bold"
+                    android:text="ОС для микроконтроллеров"/>
+                <TextView
+                    android:id="@+id/test15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_othet"
+                    android:padding="@dimen/pad_text"
+                    android:layout_margin="1dp"
+                    android:textColor="@color/white_material"
+                    android:textSize="@dimen/text"
+                    android:textStyle="bold"
+                    android:text="Итоговый тест"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
 </LinearLayout>

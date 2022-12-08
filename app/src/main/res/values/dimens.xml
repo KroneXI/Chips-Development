@@ -1,3 +1,5 @@
 <resources>
     <dimen name="zero">0dp</dimen>
+    <dimen name="text">9sp</dimen>
+    <dimen name="pad_text">3sp</dimen>
 </resources>

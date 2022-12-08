@@ -12,4 +12,12 @@
     <color name="green_light">#DAF7A6</color>
     <color name="green_white">#229ED9</color>
     <color name="blue_dark">#1B2631</color>
+
+
+    <!-- New colors-->
+    <color name="black_material">#1D0F0F</color>
+    <color name="brown_material">#453C41</color>
+    <color name="grey_material">#7B7C81</color>
+    <color name="white_material">#D4DBE2</color>
+    <color name="crayola_material">#EFBF32</color>
 </resources>
