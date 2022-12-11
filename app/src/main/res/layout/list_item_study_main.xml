@@ -50,8 +50,7 @@
             android:contentDescription="@string/openThisTheme"
             app:layout_constraintBottom_toBottomOf="@+id/themeMainName"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/themeMainName"
-            app:srcCompat="@drawable/ic_baseline_account_circle_24" />
+            app:layout_constraintTop_toTopOf="@+id/themeMainName"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -61,7 +60,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp">
+        android:paddingBottom="8dp">
 
         <TextView
             android:id="@+id/themeSecondName"

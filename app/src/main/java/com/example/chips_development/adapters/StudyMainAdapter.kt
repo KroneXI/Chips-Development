@@ -131,14 +131,6 @@ class StudyMainAdapter(private val themeMainList: ArrayList<StudyMainItems>) :
         }
     }
 
-    fun writeFileOnInternalStorage(file:String, data:String, context: Context) {
-        val fOut: FileOutputStream = context.openFileOutput(file,
-            AppCompatActivity.MODE_PRIVATE
-        )
-        fOut.write(data.toByteArray())
-        fOut.close()
-    }
-
     private fun checkVisible(holder: StudyMainsViewHolder) {
         if (
             !holder.lessonTextStart.isVisible and
@@ -179,6 +171,14 @@ class StudyMainAdapter(private val themeMainList: ArrayList<StudyMainItems>) :
 
         val finishLesson: Button = itemView.findViewById(R.id.finishLesson)
         val stateIcon: ImageView = itemView.findViewById(R.id.stateIcon)
+    }
+
+    private fun writeFileOnInternalStorage(file:String, data:String, context: Context) {
+        val fOut: FileOutputStream = context.openFileOutput(file,
+            AppCompatActivity.MODE_PRIVATE
+        )
+        fOut.write(data.toByteArray())
+        fOut.close()
     }
 
     private fun readFromFile(context: Context, fileName: String): String {

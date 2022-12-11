@@ -43,10 +43,6 @@ class StudyFragment : Fragment() {
         studyMainRecyclerView.adapter = studyMainAdapter
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-    }
-
     private fun getJsonData(fileName: String) {
         val jsonString = context?.let { readFromFile(it, fileName) }
         val jsonArray = JSONArray(jsonString)

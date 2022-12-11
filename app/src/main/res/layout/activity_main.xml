@@ -19,6 +19,7 @@
         app:navGraph="@navigation/main_nav" />
 
     <com.ismaeldivita.chipnavigation.ChipNavigationBar
+        android:paddingTop="2dp"
         android:id="@+id/bottomNavigationMain"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -28,16 +29,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fragmentContainerView"
         app:cnb_menuResource="@menu/chip_navigation_bar_menu" />
-
-<!--    <com.google.android.material.bottomnavigation.BottomNavigationView-->
-<!--        android:id="@+id/bottomNavigationMain"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:background="@color/white_material"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/fragmentContainerView"-->
-<!--        app:menu="@menu/main_navigation_menu" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

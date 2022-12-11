@@ -50,7 +50,6 @@ class MainActivity : AppCompatActivity() {
                     replaceFragment(aboutFragment)
                 }
             }
-//            true
         }
     }
 

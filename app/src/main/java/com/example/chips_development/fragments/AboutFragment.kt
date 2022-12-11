@@ -13,8 +13,6 @@ import java.io.FileOutputStream
 
 class AboutFragment : Fragment() {
 
-    private var button: Button? = null
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -24,16 +22,5 @@ class AboutFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        button = view.findViewById(R.id.buttonToMain)
-        button?.setOnClickListener(buttonsClickListener)
-    }
-
-    private val buttonsClickListener: View.OnClickListener = View.OnClickListener {
-        when (it.id) {
-//            R.id.buttonToMain -> {
-//                context?.let { it1 -> save("test.txt", "a", it1) }
-//            }
-        }
     }
 }
