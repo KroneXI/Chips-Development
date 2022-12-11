@@ -5,17 +5,34 @@
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple_500</item>
 <!--        <item name="colorPrimary">@color/crayola_material</item>-->
-        <item name="colorPrimaryVariant">@color/white_material</item>
-        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimaryVariant">?attr/colorOnPrimary</item>
+<!--        <item name="colorOnPrimary">@color/white</item>-->
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
+<!--        <item name="colorSecondary">@color/teal_200</item>-->
         <item name="colorSecondaryVariant">@color/teal_700</item>
-        <item name="colorOnSecondary">@color/black</item>
+        <item name="colorOnSecondary">?attr/colorOnPrimaryContainer</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
 
-        <item name="android:windowBackground">@color/white_material</item>
+        <item name="android:windowBackground">?attr/colorOnPrimary</item>
 
+
+        <!--        ?attr/colorPrimaryContainer-->
+        <item name="colorPrimaryContainer">@color/md_theme_light_primaryContainer</item>
+        <!--        ?attr/colorOnPrimaryContainer-->
+        <item name="colorOnPrimaryContainer">@color/md_theme_light_scrim</item>
+        <!--        ?attr/colorOnPrimary-->
+        <item name="colorOnPrimary">@color/md_theme_light_onPrimary</item>
+        <!--        ?attr/colorSecondary-->
+        <item name="colorSecondary">@color/md_theme_light_secondary</item>
+        <!--        ?attr/colorSurfaceInverse-->
+        <item name="colorSurfaceInverse">@color/md_theme_light_onSurfaceVariant</item>
+        <!--        ?attr/colorTertiary-->
+        <item name="colorTertiary">@color/md_theme_dark_tertiary</item>
+        <!--        ?attr/colorOnErrorContainer-->
+        <item name="colorOnErrorContainer">@color/md_theme_dark_error</item>
+        <!--        ?attr/colorPrimaryInverse-->
+        <item name="colorPrimaryInverse">@color/md_theme_dark_inversePrimary</item>
 <!--        <item name="android:text">?attr/colorOnPrimary</item>-->
         <!-- Customize your theme here. -->
     </style>

@@ -18,9 +18,9 @@
         <shape>
             <corners android:radius="5dp"/>
             <gradient
-                android:endColor="@android:color/holo_green_light"
-                android:centerColor="@android:color/holo_orange_light"
-                android:startColor="@android:color/holo_red_light"
+                android:endColor="?attr/colorTertiary"
+                android:centerColor="?attr/colorPrimaryInverse"
+                android:startColor="?attr/colorOnErrorContainer"
                 />
         </shape>
     </clip>

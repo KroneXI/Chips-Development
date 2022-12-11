@@ -22,7 +22,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="100%"
-            android:textColor="@color/black_material"
+            android:textColor="?attr/colorOnPrimaryContainer"
             android:textSize="65sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -54,7 +54,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/black_material"
+            android:textColor="?attr/colorOnPrimaryContainer"
             android:textSize="25sp"
             android:textStyle="bold"
             android:layout_marginLeft="15dp"
@@ -91,7 +91,7 @@
                     android:background="@drawable/background_othet"
                     android:padding="@dimen/pad_text"
                     android:layout_margin="1dp"
-                    android:textColor="@color/white_material"
+                    android:textColor="?attr/colorOnPrimary"
                     android:textSize="@dimen/text"
                     android:textStyle="bold"
                     android:text="Введение"/>
@@ -104,7 +104,7 @@
                     android:background="@drawable/background_othet"
                     android:padding="@dimen/pad_text"
                     android:text="Основы вычислительной техники"
-                    android:textColor="@color/white_material"
+                    android:textColor="?attr/colorOnPrimary"
                     android:textSize="@dimen/text"
                     android:textStyle="bold" />
                 <TextView
@@ -114,7 +114,7 @@
                     android:background="@drawable/background_othet"
                     android:padding="@dimen/pad_text"
                     android:layout_margin="1dp"
-                    android:textColor="@color/white_material"
+                    android:textColor="?attr/colorOnPrimary"
                     android:textSize="@dimen/text"
                     android:textStyle="bold"
                     android:text="Вычислительное ядро"/>
@@ -133,7 +133,7 @@
                     android:background="@drawable/background_othet"
                     android:padding="@dimen/pad_text"
                     android:layout_margin="1dp"
-                    android:textColor="@color/white_material"
+                    android:textColor="?attr/colorOnPrimary"
                     android:textSize="@dimen/text"
                     android:textStyle="bold"
                     android:text="Регистры. Таймеры"/>
@@ -144,7 +144,7 @@
                     android:background="@drawable/background_othet"
                     android:padding="@dimen/pad_text"
                     android:layout_margin="1dp"
-                    android:textColor="@color/white_material"
+                    android:textColor="?attr/colorOnPrimary"
                     android:textSize="@dimen/text"
                     android:textStyle="bold"
                     android:text="Порты ввода — вывода"/>
@@ -155,7 +155,7 @@
                     android:background="@drawable/background_othet"
                     android:padding="@dimen/pad_text"
                     android:layout_margin="1dp"
-                    android:textColor="@color/white_material"
+                    android:textColor="?attr/colorOnPrimary"
                     android:textSize="@dimen/text"
                     android:textStyle="bold"
                     android:text="Шины связи"/>
@@ -174,7 +174,7 @@
                     android:background="@drawable/background_othet"
                     android:padding="@dimen/pad_text"
                     android:layout_margin="1dp"
-                    android:textColor="@color/white_material"
+                    android:textColor="?attr/colorOnPrimary"
                     android:textSize="@dimen/text"
                     android:textStyle="bold"
                     android:text="Прерывания в МК"/>
@@ -185,7 +185,7 @@
                     android:background="@drawable/background_othet"
                     android:padding="@dimen/pad_text"
                     android:layout_margin="1dp"
-                    android:textColor="@color/white_material"
+                    android:textColor="?attr/colorOnPrimary"
                     android:textSize="@dimen/text"
                     android:textStyle="bold"
                     android:text="Начало работы с STM32"/>
@@ -196,7 +196,7 @@
                     android:background="@drawable/background_othet"
                     android:padding="@dimen/pad_text"
                     android:layout_margin="1dp"
-                    android:textColor="@color/white_material"
+                    android:textColor="?attr/colorOnPrimary"
                     android:textSize="@dimen/text"
                     android:textStyle="bold"
                     android:text="Проект и конфигурация МК"/>
@@ -215,7 +215,7 @@
                     android:background="@drawable/background_othet"
                     android:padding="@dimen/pad_text"
                     android:layout_margin="1dp"
-                    android:textColor="@color/white_material"
+                    android:textColor="?attr/colorOnPrimary"
                     android:textSize="@dimen/text"
                     android:textStyle="bold"
                     android:text="Подключение датчиков"/>
@@ -226,7 +226,7 @@
                     android:background="@drawable/background_othet"
                     android:padding="@dimen/pad_text"
                     android:layout_margin="1dp"
-                    android:textColor="@color/white_material"
+                    android:textColor="?attr/colorOnPrimary"
                     android:textSize="@dimen/text"
                     android:textStyle="bold"
                     android:text="Управление актуаторами"/>
@@ -237,7 +237,7 @@
                     android:background="@drawable/background_othet"
                     android:padding="@dimen/pad_text"
                     android:layout_margin="1dp"
-                    android:textColor="@color/white_material"
+                    android:textColor="?attr/colorOnPrimary"
                     android:textSize="@dimen/text"
                     android:textStyle="bold"
                     android:text="Управления роботом"/>
@@ -256,7 +256,7 @@
                     android:background="@drawable/background_othet"
                     android:padding="@dimen/pad_text"
                     android:layout_margin="1dp"
-                    android:textColor="@color/white_material"
+                    android:textColor="?attr/colorOnPrimary"
                     android:textSize="@dimen/text"
                     android:textStyle="bold"
                     android:text="Специальные функции STM32"/>
@@ -267,7 +267,7 @@
                     android:background="@drawable/background_othet"
                     android:padding="@dimen/pad_text"
                     android:layout_margin="1dp"
-                    android:textColor="@color/white_material"
+                    android:textColor="?attr/colorOnPrimary"
                     android:textSize="@dimen/text"
                     android:textStyle="bold"
                     android:text="ОС для микроконтроллеров"/>
@@ -287,7 +287,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/black_material"
+            android:textColor="?attr/colorOnPrimaryContainer"
             android:textSize="25sp"
             android:textStyle="bold"
             android:layout_marginLeft="15dp"
@@ -324,7 +324,7 @@
                     android:background="@drawable/background_othet"
                     android:padding="@dimen/pad_text"
                     android:layout_margin="1dp"
-                    android:textColor="@color/white_material"
+                    android:textColor="?attr/colorOnPrimary"
                     android:textSize="@dimen/text"
                     android:textStyle="bold"
                     android:text="Введение"/>
@@ -337,7 +337,7 @@
                     android:background="@drawable/background_othet"
                     android:padding="@dimen/pad_text"
                     android:text="Основы вычислительной техники"
-                    android:textColor="@color/white_material"
+                    android:textColor="?attr/colorOnPrimary"
                     android:textSize="@dimen/text"
                     android:textStyle="bold" />
                 <TextView
@@ -347,7 +347,7 @@
                     android:background="@drawable/background_othet"
                     android:padding="@dimen/pad_text"
                     android:layout_margin="1dp"
-                    android:textColor="@color/white_material"
+                    android:textColor="?attr/colorOnPrimary"
                     android:textSize="@dimen/text"
                     android:textStyle="bold"
                     android:text="Вычислительное ядро"/>
@@ -366,7 +366,7 @@
                     android:background="@drawable/background_othet"
                     android:padding="@dimen/pad_text"
                     android:layout_margin="1dp"
-                    android:textColor="@color/white_material"
+                    android:textColor="?attr/colorOnPrimary"
                     android:textSize="@dimen/text"
                     android:textStyle="bold"
                     android:text="Регистры. Таймеры"/>
@@ -377,7 +377,7 @@
                     android:background="@drawable/background_othet"
                     android:padding="@dimen/pad_text"
                     android:layout_margin="1dp"
-                    android:textColor="@color/white_material"
+                    android:textColor="?attr/colorOnPrimary"
                     android:textSize="@dimen/text"
                     android:textStyle="bold"
                     android:text="Порты ввода — вывода"/>
@@ -388,7 +388,7 @@
                     android:background="@drawable/background_othet"
                     android:padding="@dimen/pad_text"
                     android:layout_margin="1dp"
-                    android:textColor="@color/white_material"
+                    android:textColor="?attr/colorOnPrimary"
                     android:textSize="@dimen/text"
                     android:textStyle="bold"
                     android:text="Шины связи"/>
@@ -407,7 +407,7 @@
                     android:background="@drawable/background_othet"
                     android:padding="@dimen/pad_text"
                     android:layout_margin="1dp"
-                    android:textColor="@color/white_material"
+                    android:textColor="?attr/colorOnPrimary"
                     android:textSize="@dimen/text"
                     android:textStyle="bold"
                     android:text="Прерывания в МК"/>
@@ -418,7 +418,7 @@
                     android:background="@drawable/background_othet"
                     android:padding="@dimen/pad_text"
                     android:layout_margin="1dp"
-                    android:textColor="@color/white_material"
+                    android:textColor="?attr/colorOnPrimary"
                     android:textSize="@dimen/text"
                     android:textStyle="bold"
                     android:text="Начало работы с STM32"/>
@@ -429,7 +429,7 @@
                     android:background="@drawable/background_othet"
                     android:padding="@dimen/pad_text"
                     android:layout_margin="1dp"
-                    android:textColor="@color/white_material"
+                    android:textColor="?attr/colorOnPrimary"
                     android:textSize="@dimen/text"
                     android:textStyle="bold"
                     android:text="Проект и конфигурация МК"/>
@@ -448,7 +448,7 @@
                     android:background="@drawable/background_othet"
                     android:padding="@dimen/pad_text"
                     android:layout_margin="1dp"
-                    android:textColor="@color/white_material"
+                    android:textColor="?attr/colorOnPrimary"
                     android:textSize="@dimen/text"
                     android:textStyle="bold"
                     android:text="Подключение датчиков"/>
@@ -459,7 +459,7 @@
                     android:background="@drawable/background_othet"
                     android:padding="@dimen/pad_text"
                     android:layout_margin="1dp"
-                    android:textColor="@color/white_material"
+                    android:textColor="?attr/colorOnPrimary"
                     android:textSize="@dimen/text"
                     android:textStyle="bold"
                     android:text="Управление актуаторами"/>
@@ -470,7 +470,7 @@
                     android:background="@drawable/background_othet"
                     android:padding="@dimen/pad_text"
                     android:layout_margin="1dp"
-                    android:textColor="@color/white_material"
+                    android:textColor="?attr/colorOnPrimary"
                     android:textSize="@dimen/text"
                     android:textStyle="bold"
                     android:text="Управления роботом"/>
@@ -489,7 +489,7 @@
                     android:background="@drawable/background_othet"
                     android:padding="@dimen/pad_text"
                     android:layout_margin="1dp"
-                    android:textColor="@color/white_material"
+                    android:textColor="?attr/colorOnPrimary"
                     android:textSize="@dimen/text"
                     android:textStyle="bold"
                     android:text="Специальные функции STM32"/>
@@ -500,7 +500,7 @@
                     android:background="@drawable/background_othet"
                     android:padding="@dimen/pad_text"
                     android:layout_margin="1dp"
-                    android:textColor="@color/white_material"
+                    android:textColor="?attr/colorOnPrimary"
                     android:textSize="@dimen/text"
                     android:textStyle="bold"
                     android:text="ОС для микроконтроллеров"/>
@@ -511,7 +511,7 @@
                     android:background="@drawable/background_othet"
                     android:padding="@dimen/pad_text"
                     android:layout_margin="1dp"
-                    android:textColor="@color/white_material"
+                    android:textColor="?attr/colorOnPrimary"
                     android:textSize="@dimen/text"
                     android:textStyle="bold"
                     android:text="Итоговый тест"/>

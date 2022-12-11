@@ -23,8 +23,8 @@
             <gradient
                 android:centerColor="@android:color/holo_orange_light"
                 android:centerY="0.50"
-                android:endColor="@android:color/holo_green_light"
-                android:startColor="@android:color/holo_red_light"
+                android:endColor="?attr/colorTertiary"
+                android:startColor="?attr/colorOnErrorContainer"
                 android:type="sweep"
                 android:useLevel="false" />
 <!--            <gradient-->

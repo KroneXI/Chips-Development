@@ -31,7 +31,7 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:tint="@color/black_material" />
+            app:tint="?attr/colorOnPrimaryContainer" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -68,7 +68,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:tint="@color/black_material" />
+                    app:tint="?attr/colorOnPrimaryContainer" />
 
                 <EditText
                     android:id="@+id/login"
@@ -78,7 +78,7 @@
                     android:layout_marginEnd="8dp"
                     android:background="@drawable/background"
                     android:padding="10dp"
-                    android:textColor="@color/black_material"
+                    android:textColor="?attr/colorOnPrimaryContainer"
                     app:layout_constraintBottom_toBottomOf="@+id/imageView"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/imageView"
@@ -105,7 +105,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:tint="@color/black_material" />
+                    app:tint="?attr/colorOnPrimaryContainer" />
 
                 <EditText
                     android:id="@+id/password"
@@ -116,7 +116,7 @@
                     android:background="@drawable/background"
                     android:padding="10dp"
                     android:inputType="textPassword"
-                    android:textColor="@color/black_material"
+                    android:textColor="?attr/colorOnPrimaryContainer"
                     app:layout_constraintBottom_toBottomOf="@+id/imageViewPassword"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/imageViewPassword"
@@ -143,7 +143,7 @@
                     android:layout_marginBottom="2dp"
                     android:background="@drawable/background"
                     android:text="Войти"
-                    android:textColor="@color/black_material"
+                    android:textColor="?attr/colorOnPrimaryContainer"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"

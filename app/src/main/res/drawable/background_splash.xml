@@ -6,7 +6,7 @@
 
   <item>
     <shape android:shape="oval">
-      <solid android:color="@color/crayola_material" />
+      <solid android:color="?attr/colorPrimaryContainer" />
     </shape>
   </item>
 </ripple>

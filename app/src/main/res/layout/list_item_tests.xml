@@ -4,56 +4,68 @@
     android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_margin="5dp"
-    android:background="@drawable/background"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp">
 
-        <ImageView
-            android:id="@+id/status"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:background="@android:color/transparent"
-            app:layout_constraintBottom_toBottomOf="@+id/theme_name"
-            app:layout_constraintEnd_toStartOf="@+id/theme_name"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/theme_name" />
-
-        <TextView
-            android:id="@+id/theme_name"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
-            android:textColor="@color/black_material"
-            android:textSize="25sp"
-            android:textStyle="bold"
+            android:background="@drawable/background"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/openTestButton"
-            app:layout_constraintStart_toEndOf="@+id/status"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="@string/theme1" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:background="@android:color/transparent"
+                app:layout_constraintBottom_toBottomOf="@+id/theme_name"
+                app:layout_constraintEnd_toStartOf="@+id/theme_name"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/theme_name" />
+
+            <TextView
+                android:id="@+id/theme_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:textColor="?attr/colorOnPrimaryContainer"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/status"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="@string/theme1" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <ImageButton
             android:id="@+id/openTestButton"
+            android:background="@drawable/background"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginEnd="8dp"
-            android:background="@android:color/transparent"
+            android:layout_height="0dp"
             android:contentDescription="@string/openThisTheme"
-            app:layout_constraintBottom_toBottomOf="@+id/theme_name"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/theme_name"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <LinearLayout
+        android:background="@drawable/background"
         android:id="@+id/linearLayout1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -82,7 +94,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
-                    android:textColor="@color/black_material"
+                    android:textColor="?attr/colorOnPrimaryContainer"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -112,7 +124,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@color/white_material"
+                    android:background="?attr/colorOnPrimary"
                     android:orientation="vertical">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
@@ -134,7 +146,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:padding="8dp"
-                            android:textColor="@color/black_material"
+                            android:textColor="?attr/colorOnPrimaryContainer"
                             android:textSize="15sp"
                             android:textStyle="normal"
                             app:layout_constraintBottom_toBottomOf="parent"
@@ -176,7 +188,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:padding="8dp"
-                            android:textColor="@color/black_material"
+                            android:textColor="?attr/colorOnPrimaryContainer"
                             android:textSize="15sp"
                             android:textStyle="normal"
                             app:layout_constraintBottom_toBottomOf="parent"
@@ -218,7 +230,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:padding="8dp"
-                            android:textColor="@color/black_material"
+                            android:textColor="?attr/colorOnPrimaryContainer"
                             android:textSize="15sp"
                             android:textStyle="normal"
                             app:layout_constraintBottom_toBottomOf="parent"
@@ -260,7 +272,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:padding="8dp"
-                            android:textColor="@color/black_material"
+                            android:textColor="?attr/colorOnPrimaryContainer"
                             android:textSize="15sp"
                             android:textStyle="normal"
                             app:layout_constraintBottom_toBottomOf="parent"
@@ -308,7 +320,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
-                    android:textColor="@color/black_material"
+                    android:textColor="?attr/colorOnPrimaryContainer"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -338,7 +350,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@color/white_material"
+                    android:background="?attr/colorOnPrimary"
                     android:orientation="vertical">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
@@ -360,7 +372,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:padding="8dp"
-                            android:textColor="@color/black_material"
+                            android:textColor="?attr/colorOnPrimaryContainer"
                             android:textSize="15sp"
                             android:textStyle="normal"
                             app:layout_constraintBottom_toBottomOf="parent"
@@ -402,7 +414,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:padding="8dp"
-                            android:textColor="@color/black_material"
+                            android:textColor="?attr/colorOnPrimaryContainer"
                             android:textSize="15sp"
                             android:textStyle="normal"
                             app:layout_constraintBottom_toBottomOf="parent"
@@ -444,7 +456,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:padding="8dp"
-                            android:textColor="@color/black_material"
+                            android:textColor="?attr/colorOnPrimaryContainer"
                             android:textSize="15sp"
                             android:textStyle="normal"
                             app:layout_constraintBottom_toBottomOf="parent"
@@ -486,7 +498,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:padding="8dp"
-                            android:textColor="@color/black_material"
+                            android:textColor="?attr/colorOnPrimaryContainer"
                             android:textSize="15sp"
                             android:textStyle="normal"
                             app:layout_constraintBottom_toBottomOf="parent"
@@ -534,7 +546,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
-                    android:textColor="@color/black_material"
+                    android:textColor="?attr/colorOnPrimaryContainer"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -564,7 +576,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@color/white_material"
+                    android:background="?attr/colorOnPrimary"
                     android:orientation="vertical">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
@@ -586,7 +598,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:padding="8dp"
-                            android:textColor="@color/black_material"
+                            android:textColor="?attr/colorOnPrimaryContainer"
                             android:textSize="15sp"
                             android:textStyle="normal"
                             app:layout_constraintBottom_toBottomOf="parent"
@@ -628,7 +640,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:padding="8dp"
-                            android:textColor="@color/black_material"
+                            android:textColor="?attr/colorOnPrimaryContainer"
                             android:textSize="15sp"
                             android:textStyle="normal"
                             app:layout_constraintBottom_toBottomOf="parent"
@@ -670,7 +682,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:padding="8dp"
-                            android:textColor="@color/black_material"
+                            android:textColor="?attr/colorOnPrimaryContainer"
                             android:textSize="15sp"
                             android:textStyle="normal"
                             app:layout_constraintBottom_toBottomOf="parent"
@@ -712,7 +724,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:padding="8dp"
-                            android:textColor="@color/black_material"
+                            android:textColor="?attr/colorOnPrimaryContainer"
                             android:textSize="15sp"
                             android:textStyle="normal"
                             app:layout_constraintBottom_toBottomOf="parent"
@@ -760,7 +772,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
-                    android:textColor="@color/black_material"
+                    android:textColor="?attr/colorOnPrimaryContainer"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -790,7 +802,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@color/white_material"
+                    android:background="?attr/colorOnPrimary"
                     android:orientation="vertical">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
@@ -812,7 +824,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:padding="8dp"
-                            android:textColor="@color/black_material"
+                            android:textColor="?attr/colorOnPrimaryContainer"
                             android:textSize="15sp"
                             android:textStyle="normal"
                             app:layout_constraintBottom_toBottomOf="parent"
@@ -854,7 +866,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:padding="8dp"
-                            android:textColor="@color/black_material"
+                            android:textColor="?attr/colorOnPrimaryContainer"
                             android:textSize="15sp"
                             android:textStyle="normal"
                             app:layout_constraintBottom_toBottomOf="parent"
@@ -896,7 +908,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:padding="8dp"
-                            android:textColor="@color/black_material"
+                            android:textColor="?attr/colorOnPrimaryContainer"
                             android:textSize="15sp"
                             android:textStyle="normal"
                             app:layout_constraintBottom_toBottomOf="parent"
@@ -938,7 +950,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:padding="8dp"
-                            android:textColor="@color/black_material"
+                            android:textColor="?attr/colorOnPrimaryContainer"
                             android:textSize="15sp"
                             android:textStyle="normal"
                             app:layout_constraintBottom_toBottomOf="parent"
@@ -986,7 +998,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
-                    android:textColor="@color/black_material"
+                    android:textColor="?attr/colorOnPrimaryContainer"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -1016,7 +1028,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@color/white_material"
+                    android:background="?attr/colorOnPrimary"
                     android:orientation="vertical">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
@@ -1038,7 +1050,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:padding="8dp"
-                            android:textColor="@color/black_material"
+                            android:textColor="?attr/colorOnPrimaryContainer"
                             android:textSize="15sp"
                             android:textStyle="normal"
                             app:layout_constraintBottom_toBottomOf="parent"
@@ -1080,7 +1092,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:padding="8dp"
-                            android:textColor="@color/black_material"
+                            android:textColor="?attr/colorOnPrimaryContainer"
                             android:textSize="15sp"
                             android:textStyle="normal"
                             app:layout_constraintBottom_toBottomOf="parent"
@@ -1122,7 +1134,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:padding="8dp"
-                            android:textColor="@color/black_material"
+                            android:textColor="?attr/colorOnPrimaryContainer"
                             android:textSize="15sp"
                             android:textStyle="normal"
                             app:layout_constraintBottom_toBottomOf="parent"
@@ -1164,7 +1176,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:padding="8dp"
-                            android:textColor="@color/black_material"
+                            android:textColor="?attr/colorOnPrimaryContainer"
                             android:textSize="15sp"
                             android:textStyle="normal"
                             app:layout_constraintBottom_toBottomOf="parent"

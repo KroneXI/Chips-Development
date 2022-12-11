@@ -19,11 +19,12 @@
         app:navGraph="@navigation/main_nav" />
 
     <com.ismaeldivita.chipnavigation.ChipNavigationBar
-        android:paddingTop="2dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
         android:id="@+id/bottomNavigationMain"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@color/white_material"
+        android:background="?attr/colorOnPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
