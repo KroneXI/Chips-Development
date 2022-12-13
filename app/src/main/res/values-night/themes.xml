@@ -19,18 +19,27 @@
         <!--        ?attr/colorPrimaryContainer-->
         <item name="colorPrimaryContainer">@color/md_theme_dark_primaryContainer</item>
         <!--        ?attr/colorOnPrimaryContainer-->
-        <item name="colorOnPrimaryContainer">@color/md_theme_light_scrim</item>
+        <item name="colorOnPrimaryContainer">@color/md_theme_dark_scrim</item>
         <!--        ?attr/colorOnPrimary-->
         <item name="colorOnPrimary">@color/md_theme_dark_secondary</item>
         <!--        ?attr/colorSecondary-->
         <item name="colorSecondary">@color/md_theme_dark_secondary</item>
         <!--        ?attr/colorSurfaceInverse-->
-        <item name="colorSurfaceInverse">@color/md_theme_light_scrim</item>
+        <item name="colorSurfaceInverse">@color/md_theme_dark_scrim</item>
         <!--        ?attr/colorTertiary-->
         <item name="colorTertiary">@color/md_theme_light_tertiary</item>
         <!--        ?attr/colorOnErrorContainer-->
         <item name="colorOnErrorContainer">@color/md_theme_light_error</item>
         <!--        ?attr/colorPrimaryInverse-->
-        <item name="colorPrimaryInverse">@color/md_theme_light_inversePrimary</item>
+        <item name="colorPrimaryInverse">@color/md_theme_dark_inversePrimary</item>
+    </style>
+
+    <style name="my_progressbar_style_ver" parent="Widget.AppCompat.ProgressBar.Horizontal">
+        <item name="android:progressDrawable">@drawable/vertical_progress_bar</item>
+    </style>
+
+    <style name="CircularDeterminateProgressBar">
+        <item name="android:indeterminateOnly">false</item>
+        <item name="android:progressDrawable">@drawable/circle</item>
     </style>
 </resources>

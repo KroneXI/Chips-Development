@@ -64,13 +64,13 @@ class MainFragment : Fragment() {
         super.onResume()
 
         getStudyTextView()
+        getTestTextView()
         setProgress(
             appPercentProgress = appPercentProgress,
             progressbarMain = progressMain,
             progressbarStudy = progressStudy,
             progressbarTest = progressTests
         )
-        getStudyTextView()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -86,11 +86,11 @@ class MainFragment : Fragment() {
         progressbarStudy: ProgressBar?,
         progressbarTest: ProgressBar?
     ) {
-        val percent = getMainProgress().toString()
+        val percent = (getMainProgress() + getTestProgress())/2
         appPercentProgress?.text = "$percent%"
-        progressbarMain?.progress = getMainProgress()
+        progressbarMain?.progress = (getMainProgress() + getTestProgress())/2
         progressbarStudy?.progress = getMainProgress()
-        progressbarTest?.progress = getMainProgress()
+        progressbarTest?.progress = getTestProgress()
     }
 
     private fun readFromFile(context: Context, fileName: String): String {
@@ -140,6 +140,24 @@ class MainFragment : Fragment() {
         return ((js.toFloat()/count.toFloat())*100).toInt()
     }
 
+    private fun getTestProgress(): Int {
+        val jsonString = context?.let { readFromFile(it, "test.json") }
+        val jsonArray = JSONArray(jsonString)
+        var js = 0
+        var count = 0
+        for (i in 0 until jsonArray.length()) {
+            val jsonObj = jsonArray.getJSONObject(i)
+            if (jsonObj.getString("status") == "true") {
+                js += 1
+                count += 1
+            }
+            if (jsonObj.getString("status") == "false") {
+                count += 1
+            }
+        }
+        return ((js.toFloat()/count.toFloat())*100).toInt()
+    }
+
     private fun getStudyTextView() {
         val jsonString = context?.let { readFromFile(it, "study.json") }
         val jsonArray = JSONArray(jsonString)
@@ -160,6 +178,31 @@ class MainFragment : Fragment() {
                 11 -> theme12?.isVisible = jsonObj.getString("check") == "true"
                 12 -> theme13?.isVisible = jsonObj.getString("check") == "true"
                 13 -> theme14?.isVisible = jsonObj.getString("check") == "true"
+                else -> print("")
+            }
+        }
+    }
+
+    private fun getTestTextView() {
+        val jsonString = context?.let { readFromFile(it, "test.json") }
+        val jsonArray = JSONArray(jsonString)
+        for (i in 0 until jsonArray.length()) {
+            val jsonObj = jsonArray.getJSONObject(i)
+            when (i) {
+                0 -> test1?.isVisible = jsonObj.getString("status") == "true"
+                1 -> test2?.isVisible = jsonObj.getString("status") == "true"
+                2 -> test3?.isVisible = jsonObj.getString("status") == "true"
+                3 -> test4?.isVisible = jsonObj.getString("status") == "true"
+                4 -> test5?.isVisible = jsonObj.getString("status") == "true"
+                5 -> test6?.isVisible = jsonObj.getString("status") == "true"
+                6 -> test7?.isVisible = jsonObj.getString("status") == "true"
+                7 -> test8?.isVisible = jsonObj.getString("status") == "true"
+                8 -> test9?.isVisible = jsonObj.getString("status") == "true"
+                9 -> test10?.isVisible = jsonObj.getString("status") == "true"
+                10 -> test11?.isVisible = jsonObj.getString("status") == "true"
+                11 -> test12?.isVisible = jsonObj.getString("status") == "true"
+                12 -> test13?.isVisible = jsonObj.getString("status") == "true"
+                13 -> test14?.isVisible = jsonObj.getString("status") == "true"
                 else -> print("")
             }
         }

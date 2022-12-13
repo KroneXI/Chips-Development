@@ -292,7 +292,7 @@
             android:textStyle="bold"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
-            android:text="Ваш прогресс в самостоятельном обучении"/>
+            android:text="Ваш прогресс в тестовых заданиях"/>
 
         <ProgressBar
             android:id="@+id/verticalProgressbar1"

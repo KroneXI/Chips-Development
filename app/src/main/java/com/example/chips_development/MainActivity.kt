@@ -202,7 +202,7 @@ class MainActivity : AppCompatActivity() {
                     "]")
             writeFileOnInternalStorage(file = "test.json", data = "[\n" +
                     "  {\n" +
-                    "    \"status\": \"false(не пройдено)\",\n" +
+                    "    \"status\": \"false\",\n" +
                     "    \"theme_name\": \"Введение\",\n" +
                     "    \"question1\": \"Информация - это:\",\n" +
                     "    \"status_question1\": \"false\",\n" +
@@ -256,7 +256,7 @@ class MainActivity : AppCompatActivity() {
                     "    \"status_var4_question5\": \"false\"\n" +
                     "  },\n" +
                     "  {\n" +
-                    "    \"status\": \"false(не пройдено)\",\n" +
+                    "    \"status\": \"false\",\n" +
                     "    \"theme_name\": \"Основы вычислительной техники. ТТЛ-логика\",\n" +
                     "    \"question1\": \"Микропроцессорная система какого типа не обеспечивает управление внешними устройствами?\",\n" +
                     "    \"status_question1\": \"true\",\n" +
@@ -297,7 +297,7 @@ class MainActivity : AppCompatActivity() {
                     "    \"var3_question4\": \"«ИЛИ«\",\n" +
                     "    \"status_var3_question4\": \"false\",\n" +
                     "    \"var4_question4\": \"Константа «1«\",\n" +
-                    "    \"status_var4_question4\": \"true\",\n" +
+                    "    \"status_var4_question4\": \"false\",\n" +
                     "    \"question5\": \"Выберите неверное утверждение:\",\n" +
                     "    \"status_question5\": \"false\",\n" +
                     "    \"var1_question5\": \"PCI — быстродействующая шина.\",\n" +

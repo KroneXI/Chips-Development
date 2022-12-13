@@ -5,10 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageButton
-import android.widget.ImageView
-import android.widget.LinearLayout
-import android.widget.TextView
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
@@ -23,7 +20,6 @@ class TestsAdapter(private val testsList: ArrayList<TestsItems>) :
 
     private val collapseMap = HashMap<String, Boolean>()
 
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TestsViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(
             R.layout.list_item_tests,
@@ -33,12 +29,20 @@ class TestsAdapter(private val testsList: ArrayList<TestsItems>) :
     }
 
     override fun onBindViewHolder(holder: TestsViewHolder, position: Int) {
+        var count = 0
+        val resultArray: ArrayList<String> = ArrayList()
         val currentItem = testsList[position]
-//        holder.linearLayout1.isVisible = false
+
         holder.theme_name.text = currentItem.theme_name
-        holder.status.setImageResource(R.drawable.ic_baseline_circle_grey)
+        if (currentItem.status == "false") holder.status.setImageResource(R.drawable.ic_baseline_circle_grey)
+        else holder.status.setImageResource(R.drawable.ic_baseline_circle_green)
 
         holder.question1.text = currentItem.question1
+        holder.question2.text = currentItem.question2
+        holder.question3.text = currentItem.question3
+        holder.question4.text = currentItem.question4
+        holder.question5.text = currentItem.question5
+
         val isCollapsed = collapseMap.getOrDefault(currentItem.question1, false)
         holder.question1.isVisible = isCollapsed
         holder.openTestButton.setImageResource(
@@ -60,75 +64,382 @@ class TestsAdapter(private val testsList: ArrayList<TestsItems>) :
             )
         }
 
-        holder.status_question1.setImageResource(R.drawable.ic_baseline_circle_grey)
         holder.var1_question1.text = currentItem.var1_question1
-        holder.status_var1_question1.text = currentItem.status_var1_question1
-        holder.var1_question1Button.setImageResource(R.drawable.background)
         holder.var2_question1.text = currentItem.var2_question1
-        holder.status_var2_question1.text = currentItem.status_var2_question1
-        holder.var2_question1Button.setImageResource(R.drawable.background)
         holder.var3_question1.text = currentItem.var3_question1
-        holder.status_var3_question1.text = currentItem.status_var3_question1
-        holder.var3_question1Button.setImageResource(R.drawable.background)
         holder.var4_question1.text = currentItem.var4_question1
-        holder.status_var4_question1.text = currentItem.status_var4_question1
-        holder.var4_question1Button.setImageResource(R.drawable.background)
-        holder.question2.text = currentItem.question2
-        holder.status_question2.setImageResource(R.drawable.ic_baseline_circle_grey) //
         holder.var1_question2.text = currentItem.var1_question2
-        holder.status_var1_question2.text = currentItem.status_var1_question2
-        holder.var1_question2Button.setImageResource(R.drawable.background)
         holder.var2_question2.text = currentItem.var2_question2
-        holder.status_var2_question2.text = currentItem.status_var2_question2
-        holder.var2_question2Button.setImageResource(R.drawable.background)
         holder.var3_question2.text = currentItem.var3_question2
-        holder.status_var3_question2.text = currentItem.status_var3_question2
-        holder.var3_question2Button.setImageResource(R.drawable.background)
         holder.var4_question2.text = currentItem.var4_question2
-        holder.status_var4_question2.text = currentItem.status_var4_question2
-        holder.var4_question2Button.setImageResource(R.drawable.background)
-        holder.question3.text = currentItem.question3
-        holder.status_question3.setImageResource(R.drawable.ic_baseline_circle_grey) //
         holder.var1_question3.text = currentItem.var1_question3
-        holder.status_var1_question3.text = currentItem.status_var1_question3
-        holder.var1_question3Button.setImageResource(R.drawable.background)
         holder.var2_question3.text = currentItem.var2_question3
-        holder.status_var2_question3.text = currentItem.status_var2_question3
-        holder.var2_question3Button.setImageResource(R.drawable.background)
         holder.var3_question3.text = currentItem.var3_question3
-        holder.status_var3_question3.text = currentItem.status_var3_question3
-        holder.var3_question3Button.setImageResource(R.drawable.background)
         holder.var4_question3.text = currentItem.var4_question3
-        holder.status_var4_question3.text = currentItem.status_var4_question3
-        holder.var4_question3Button.setImageResource(R.drawable.background)
-        holder.question4.text = currentItem.question4
-        holder.status_question4.setImageResource(R.drawable.ic_baseline_circle_grey) //
         holder.var1_question4.text = currentItem.var1_question4
-        holder.status_var1_question4.text = currentItem.status_var1_question4
-        holder.var1_question4Button.setImageResource(R.drawable.background)
         holder.var2_question4.text = currentItem.var2_question4
-        holder.status_var2_question4.text = currentItem.status_var2_question4
-        holder.var2_question4Button.setImageResource(R.drawable.background)
         holder.var3_question4.text = currentItem.var3_question4
-        holder.status_var3_question4.text = currentItem.status_var3_question4
-        holder.var3_question4Button.setImageResource(R.drawable.background)
         holder.var4_question4.text = currentItem.var4_question4
-        holder.status_var4_question4.text = currentItem.status_var4_question4
-        holder.var4_question4Button.setImageResource(R.drawable.background)
-        holder.question5.text = currentItem.question5
-        holder.status_question5.setImageResource(R.drawable.ic_baseline_circle_grey) //
         holder.var1_question5.text = currentItem.var1_question5
-        holder.status_var1_question5.text = currentItem.status_var1_question5
-        holder.var1_question5Button.setImageResource(R.drawable.background)
         holder.var2_question5.text = currentItem.var2_question5
-        holder.status_var2_question5.text = currentItem.status_var2_question5
-        holder.var2_question5Button.setImageResource(R.drawable.background)
         holder.var3_question5.text = currentItem.var3_question5
-        holder.status_var3_question5.text = currentItem.status_var3_question5
-        holder.var3_question5Button.setImageResource(R.drawable.background)
         holder.var4_question5.text = currentItem.var4_question5
+
+        holder.status_var1_question1.text = currentItem.status_var1_question1
+        holder.status_var2_question1.text = currentItem.status_var2_question1
+        holder.status_var3_question1.text = currentItem.status_var3_question1
+        holder.status_var4_question1.text = currentItem.status_var4_question1
+        holder.status_var1_question2.text = currentItem.status_var1_question2
+        holder.status_var2_question2.text = currentItem.status_var2_question2
+        holder.status_var3_question2.text = currentItem.status_var3_question2
+        holder.status_var4_question2.text = currentItem.status_var4_question2
+        holder.status_var1_question3.text = currentItem.status_var1_question3
+        holder.status_var2_question3.text = currentItem.status_var2_question3
+        holder.status_var3_question3.text = currentItem.status_var3_question3
+        holder.status_var4_question3.text = currentItem.status_var4_question3
+        holder.status_var1_question4.text = currentItem.status_var1_question4
+        holder.status_var2_question4.text = currentItem.status_var2_question4
+        holder.status_var3_question4.text = currentItem.status_var3_question4
+        holder.status_var4_question4.text = currentItem.status_var4_question4
+        holder.status_var1_question5.text = currentItem.status_var1_question5
+        holder.status_var2_question5.text = currentItem.status_var2_question5
+        holder.status_var3_question5.text = currentItem.status_var3_question5
         holder.status_var4_question5.text = currentItem.status_var4_question5
-        holder.var4_question5Button.setImageResource(R.drawable.background)
+
+        if (currentItem.status == "false") {
+            holder.var1_question1Button.setImageResource(R.drawable.background)
+            holder.var2_question1Button.setImageResource(R.drawable.background)
+            holder.var3_question1Button.setImageResource(R.drawable.background)
+            holder.var4_question1Button.setImageResource(R.drawable.background)
+            holder.var1_question2Button.setImageResource(R.drawable.background)
+            holder.var2_question2Button.setImageResource(R.drawable.background)
+            holder.var3_question2Button.setImageResource(R.drawable.background)
+            holder.var4_question2Button.setImageResource(R.drawable.background)
+            holder.var1_question3Button.setImageResource(R.drawable.background)
+            holder.var2_question3Button.setImageResource(R.drawable.background)
+            holder.var3_question3Button.setImageResource(R.drawable.background)
+            holder.var4_question3Button.setImageResource(R.drawable.background)
+            holder.var1_question4Button.setImageResource(R.drawable.background)
+            holder.var2_question4Button.setImageResource(R.drawable.background)
+            holder.var3_question4Button.setImageResource(R.drawable.background)
+            holder.var4_question4Button.setImageResource(R.drawable.background)
+            holder.var1_question5Button.setImageResource(R.drawable.background)
+            holder.var2_question5Button.setImageResource(R.drawable.background)
+            holder.var3_question5Button.setImageResource(R.drawable.background)
+            holder.var4_question5Button.setImageResource(R.drawable.background)
+        }
+        else {
+            if (currentItem.status_var1_question1 == "true") holder.var1_question1Button.setImageResource(R.drawable.ic_pre_check) else holder.var1_question1Button.setImageResource(R.drawable.background)
+            if (currentItem.status_var2_question1 == "true") holder.var2_question1Button.setImageResource(R.drawable.ic_pre_check) else holder.var2_question1Button.setImageResource(R.drawable.background)
+            if (currentItem.status_var3_question1 == "true") holder.var3_question1Button.setImageResource(R.drawable.ic_pre_check) else holder.var3_question1Button.setImageResource(R.drawable.background)
+            if (currentItem.status_var4_question1 == "true") holder.var4_question1Button.setImageResource(R.drawable.ic_pre_check) else holder.var4_question1Button.setImageResource(R.drawable.background)
+            if (currentItem.status_var1_question2 == "true") holder.var1_question2Button.setImageResource(R.drawable.ic_pre_check) else holder.var1_question2Button.setImageResource(R.drawable.background)
+            if (currentItem.status_var2_question2 == "true") holder.var2_question2Button.setImageResource(R.drawable.ic_pre_check) else holder.var2_question2Button.setImageResource(R.drawable.background)
+            if (currentItem.status_var3_question2 == "true") holder.var3_question2Button.setImageResource(R.drawable.ic_pre_check) else holder.var3_question2Button.setImageResource(R.drawable.background)
+            if (currentItem.status_var4_question2 == "true") holder.var4_question2Button.setImageResource(R.drawable.ic_pre_check) else holder.var4_question2Button.setImageResource(R.drawable.background)
+            if (currentItem.status_var1_question3 == "true") holder.var1_question3Button.setImageResource(R.drawable.ic_pre_check) else holder.var1_question3Button.setImageResource(R.drawable.background)
+            if (currentItem.status_var2_question3 == "true") holder.var2_question3Button.setImageResource(R.drawable.ic_pre_check) else holder.var2_question3Button.setImageResource(R.drawable.background)
+            if (currentItem.status_var3_question3 == "true") holder.var3_question3Button.setImageResource(R.drawable.ic_pre_check) else holder.var3_question3Button.setImageResource(R.drawable.background)
+            if (currentItem.status_var4_question3 == "true") holder.var4_question3Button.setImageResource(R.drawable.ic_pre_check) else holder.var4_question3Button.setImageResource(R.drawable.background)
+            if (currentItem.status_var1_question4 == "true") holder.var1_question4Button.setImageResource(R.drawable.ic_pre_check) else holder.var1_question4Button.setImageResource(R.drawable.background)
+            if (currentItem.status_var2_question4 == "true") holder.var2_question4Button.setImageResource(R.drawable.ic_pre_check) else holder.var2_question4Button.setImageResource(R.drawable.background)
+            if (currentItem.status_var3_question4 == "true") holder.var3_question4Button.setImageResource(R.drawable.ic_pre_check) else holder.var3_question4Button.setImageResource(R.drawable.background)
+            if (currentItem.status_var4_question4 == "true") holder.var4_question4Button.setImageResource(R.drawable.ic_pre_check) else holder.var4_question4Button.setImageResource(R.drawable.background)
+            if (currentItem.status_var1_question5 == "true") holder.var1_question5Button.setImageResource(R.drawable.ic_pre_check) else holder.var1_question5Button.setImageResource(R.drawable.background)
+            if (currentItem.status_var2_question5 == "true") holder.var2_question5Button.setImageResource(R.drawable.ic_pre_check) else holder.var2_question5Button.setImageResource(R.drawable.background)
+            if (currentItem.status_var3_question5 == "true") holder.var3_question5Button.setImageResource(R.drawable.ic_pre_check) else holder.var3_question5Button.setImageResource(R.drawable.background)
+            if (currentItem.status_var4_question5 == "true") holder.var4_question5Button.setImageResource(R.drawable.ic_pre_check) else holder.var4_question5Button.setImageResource(R.drawable.background)
+        }
+
+        if (currentItem.status == "false") {
+            holder.status_question1.setImageResource(R.drawable.ic_baseline_circle_grey)
+            holder.status_question2.setImageResource(R.drawable.ic_baseline_circle_grey)
+            holder.status_question3.setImageResource(R.drawable.ic_baseline_circle_grey)
+            holder.status_question4.setImageResource(R.drawable.ic_baseline_circle_grey)
+            holder.status_question5.setImageResource(R.drawable.ic_baseline_circle_grey)
+        }
+        else {
+            holder.status_question1.setImageResource(R.drawable.ic_baseline_circle_green)
+            holder.status_question2.setImageResource(R.drawable.ic_baseline_circle_green)
+            holder.status_question3.setImageResource(R.drawable.ic_baseline_circle_green)
+            holder.status_question4.setImageResource(R.drawable.ic_baseline_circle_green)
+            holder.status_question5.setImageResource(R.drawable.ic_baseline_circle_green)
+        }
+
+        if (currentItem.status == "false") {
+            holder.var1_question1Button.setOnClickListener {
+                holder.var1_question1Button.setImageResource(R.drawable.ic_pre_check)
+                firstBlockSetNonClickable(holder)
+                count += 1
+                if (currentItem.status_var1_question1 == "true") oneQuestionSetTrue(resultArray)
+            }
+            holder.var2_question1Button.setOnClickListener {
+                holder.var2_question1Button.setImageResource(R.drawable.ic_pre_check)
+                firstBlockSetNonClickable(holder)
+                count += 1
+                if (currentItem.status_var2_question1 == "true") oneQuestionSetTrue(resultArray)
+            }
+            holder.var3_question1Button.setOnClickListener {
+                holder.var3_question1Button.setImageResource(R.drawable.ic_pre_check)
+                firstBlockSetNonClickable(holder)
+                count += 1
+                if (currentItem.status_var3_question1 == "true") oneQuestionSetTrue(resultArray)
+            }
+            holder.var4_question1Button.setOnClickListener {
+                holder.var4_question1Button.setImageResource(R.drawable.ic_pre_check)
+                firstBlockSetNonClickable(holder)
+                count += 1
+                if (currentItem.status_var4_question1 == "true") oneQuestionSetTrue(resultArray)
+            }
+
+            holder.var1_question2Button.setOnClickListener {
+                holder.var1_question2Button.setImageResource(R.drawable.ic_pre_check)
+                secondBlockSetNonClickable(holder)
+                count += 1
+                if (currentItem.status_var1_question2 == "true") twoQuestionSetTrue(resultArray)
+            }
+            holder.var2_question2Button.setOnClickListener {
+                holder.var2_question2Button.setImageResource(R.drawable.ic_pre_check)
+                secondBlockSetNonClickable(holder)
+                count += 1
+                if (currentItem.status_var2_question2 == "true") twoQuestionSetTrue(resultArray)
+            }
+            holder.var3_question2Button.setOnClickListener {
+                holder.var3_question2Button.setImageResource(R.drawable.ic_pre_check)
+                secondBlockSetNonClickable(holder)
+                count += 1
+                if (currentItem.status_var3_question2 == "true") twoQuestionSetTrue(resultArray)
+            }
+            holder.var4_question2Button.setOnClickListener {
+                holder.var4_question2Button.setImageResource(R.drawable.ic_pre_check)
+                secondBlockSetNonClickable(holder)
+                count += 1
+                if (currentItem.status_var4_question2 == "true") twoQuestionSetTrue(resultArray)
+            }
+            holder.var1_question3Button.setOnClickListener {
+                holder.var1_question3Button.setImageResource(R.drawable.ic_pre_check)
+                thirdBlockSetNonClickable(holder)
+                count += 1
+                if (currentItem.status_var1_question3 == "true") threeQuestionSetTrue(resultArray)
+            }
+            holder.var2_question3Button.setOnClickListener {
+                holder.var2_question3Button.setImageResource(R.drawable.ic_pre_check)
+                thirdBlockSetNonClickable(holder)
+                count += 1
+                if (currentItem.status_var2_question3 == "true") threeQuestionSetTrue(resultArray)
+            }
+            holder.var3_question3Button.setOnClickListener {
+                holder.var3_question3Button.setImageResource(R.drawable.ic_pre_check)
+                thirdBlockSetNonClickable(holder)
+                count += 1
+                if (currentItem.status_var3_question3 == "true") threeQuestionSetTrue(resultArray)
+            }
+            holder.var4_question3Button.setOnClickListener {
+                holder.var4_question3Button.setImageResource(R.drawable.ic_pre_check)
+                thirdBlockSetNonClickable(holder)
+                count += 1
+                if (currentItem.status_var4_question3 == "true") threeQuestionSetTrue(resultArray)
+            }
+
+            holder.var1_question4Button.setOnClickListener {
+                holder.var1_question4Button.setImageResource(R.drawable.ic_pre_check)
+                forBlockSetNonClickable(holder)
+                count += 1
+                if (currentItem.status_var1_question4 == "true") fourQuestionSetTrue(resultArray)
+            }
+            holder.var2_question4Button.setOnClickListener {
+                holder.var2_question4Button.setImageResource(R.drawable.ic_pre_check)
+                forBlockSetNonClickable(holder)
+                count += 1
+                if (currentItem.status_var2_question4 == "true") fourQuestionSetTrue(resultArray)
+            }
+            holder.var3_question4Button.setOnClickListener {
+                holder.var3_question4Button.setImageResource(R.drawable.ic_pre_check)
+                forBlockSetNonClickable(holder)
+                count += 1
+                if (currentItem.status_var3_question4 == "true") fourQuestionSetTrue(resultArray)
+            }
+            holder.var4_question4Button.setOnClickListener {
+                holder.var4_question4Button.setImageResource(R.drawable.ic_pre_check)
+                forBlockSetNonClickable(holder)
+                count += 1
+                if (currentItem.status_var4_question4 == "true") fourQuestionSetTrue(resultArray)
+            }
+
+            holder.var1_question5Button.setOnClickListener {
+                if (count < 4) Toast.makeText(holder.itemView.context, "Ответьте на предыдущие вопросы", Toast.LENGTH_LONG).show()
+                else {
+                    holder.var1_question5Button.setImageResource(R.drawable.ic_pre_check)
+                    fiveBlockSetNonClickable(holder)
+                    if (currentItem.status_var1_question5 == "true") fiveQuestionSetTrue(resultArray)
+                    drawResult(resultArray, holder, position)
+                }
+            }
+            holder.var2_question5Button.setOnClickListener {
+                if (count < 4) Toast.makeText(holder.itemView.context, "Ответьте на предыдущие вопросы", Toast.LENGTH_LONG).show()
+                else {
+                    holder.var2_question5Button.setImageResource(R.drawable.ic_pre_check)
+                    fiveBlockSetNonClickable(holder)
+                    if (currentItem.status_var2_question5 == "true") fiveQuestionSetTrue(resultArray)
+                    drawResult(resultArray, holder, position)
+                }
+            }
+            holder.var3_question5Button.setOnClickListener {
+                if (count < 4) Toast.makeText(holder.itemView.context, "Ответьте на предыдущие вопросы", Toast.LENGTH_LONG).show()
+                else {
+                    holder.var3_question5Button.setImageResource(R.drawable.ic_pre_check)
+                    fiveBlockSetNonClickable(holder)
+                    if (currentItem.status_var3_question5 == "true") fiveQuestionSetTrue(resultArray)
+                    drawResult(resultArray, holder, position)
+                }
+            }
+            holder.var4_question5Button.setOnClickListener {
+                if (count < 4) Toast.makeText(holder.itemView.context, "Ответьте на предыдущие вопросы", Toast.LENGTH_LONG).show()
+                else {
+                    holder.var4_question5Button.setImageResource(R.drawable.ic_pre_check)
+                    fiveBlockSetNonClickable(holder)
+                    if (currentItem.status_var4_question5 == "true") fiveQuestionSetTrue(resultArray)
+                    drawResult(resultArray, holder, position)
+                }
+            }
+        }
+        else {
+            holder.var1_question1Button.isClickable = false
+            holder.var2_question1Button.isClickable = false
+            holder.var3_question1Button.isClickable = false
+            holder.var4_question1Button.isClickable = false
+            holder.var1_question2Button.isClickable = false
+            holder.var2_question2Button.isClickable = false
+            holder.var3_question2Button.isClickable = false
+            holder.var4_question2Button.isClickable = false
+            holder.var1_question3Button.isClickable = false
+            holder.var2_question3Button.isClickable = false
+            holder.var3_question3Button.isClickable = false
+            holder.var4_question3Button.isClickable = false
+            holder.var1_question4Button.isClickable = false
+            holder.var2_question4Button.isClickable = false
+            holder.var3_question4Button.isClickable = false
+            holder.var4_question4Button.isClickable = false
+            holder.var1_question5Button.isClickable = false
+            holder.var2_question5Button.isClickable = false
+            holder.var3_question5Button.isClickable = false
+            holder.var4_question5Button.isClickable = false
+        }
+    }
+
+    private fun drawResult(
+        resultArray: ArrayList<String>,
+        holder: TestsViewHolder,
+        position: Int
+    ) {
+        holder.status.setImageResource(R.drawable.ic_baseline_circle_green)
+        for (result in resultArray) {
+            when (result) {
+                "one" -> holder.status_question1.setImageResource(R.drawable.ic_baseline_circle_green)
+                "two" -> holder.status_question2.setImageResource(R.drawable.ic_baseline_circle_green)
+                "three" -> holder.status_question3.setImageResource(R.drawable.ic_baseline_circle_green)
+                "four" -> holder.status_question4.setImageResource(R.drawable.ic_baseline_circle_green)
+                "five" -> holder.status_question5.setImageResource(R.drawable.ic_baseline_circle_green)
+            }
+        }
+        if (resultArray.size == 5) {
+            for (test in testsList) {
+                if (test == testsList[position]) {
+                    val jsonString = readFromFile(holder.itemView.context)
+                    val jsonArray = JSONArray(jsonString)
+                    var js = ""
+                    for (i in 0 until jsonArray.length()) {
+                        val jsonObj = jsonArray.getJSONObject(i)
+                        if (test.theme_name != jsonObj.getString("theme_name")) {
+                            js += jsonObj.toString()
+                        }
+                        if (test.theme_name == jsonObj.getString("theme_name")) {
+                            val string = jsonObj.toString()
+                            val result = string.replace(
+                                "\"status\":\"false\"",
+                                "\"status\":\"true\"",
+                                true
+                            )
+                            js += result
+                        }
+                    }
+                    val string = js
+
+                    val preResult = string.replace(
+                        "\"}{\"",
+                        "\"},{\"",
+                        true
+                    )
+                    val result = "[$preResult]"
+                    print(result)
+
+                    writeFileOnInternalStorage(data = result, context = holder.itemView.context)
+                }
+            }
+            Toast.makeText(holder.itemView.context, "Поздравляем! Tест пройден", Toast.LENGTH_LONG)
+                .show()
+        } else Toast.makeText(
+            holder.itemView.context,
+            "Вы неудачно завершили тест",
+            Toast.LENGTH_LONG
+        ).show()
+    }
+
+    private fun oneQuestionSetTrue(
+        resultArray: ArrayList<String>
+    ) {
+        resultArray.add("one")
+    }
+    private fun twoQuestionSetTrue(
+        resultArray: ArrayList<String>
+    ) {
+        resultArray.add("two")
+    }
+    private fun threeQuestionSetTrue(
+        resultArray: ArrayList<String>
+    ) {
+        resultArray.add("three")
+    }
+    private fun fourQuestionSetTrue(
+        resultArray: ArrayList<String>
+    ) {
+        resultArray.add("four")
+    }
+    private fun fiveQuestionSetTrue(
+        resultArray: ArrayList<String>
+    ) {
+        resultArray.add("five")
+    }
+
+    private fun firstBlockSetNonClickable(holder: TestsViewHolder) {
+        holder.var1_question1Button.isClickable = false
+        holder.var2_question1Button.isClickable = false
+        holder.var3_question1Button.isClickable = false
+        holder.var4_question1Button.isClickable = false
+    }
+    private fun secondBlockSetNonClickable(holder: TestsViewHolder) {
+        holder.var1_question2Button.isClickable = false
+        holder.var2_question2Button.isClickable = false
+        holder.var3_question2Button.isClickable = false
+        holder.var4_question2Button.isClickable = false
+    }
+    private fun thirdBlockSetNonClickable(holder: TestsViewHolder) {
+        holder.var1_question3Button.isClickable = false
+        holder.var2_question3Button.isClickable = false
+        holder.var3_question3Button.isClickable = false
+        holder.var4_question3Button.isClickable = false
+    }
+    private fun forBlockSetNonClickable(holder: TestsViewHolder) {
+        holder.var1_question4Button.isClickable = false
+        holder.var2_question4Button.isClickable = false
+        holder.var3_question4Button.isClickable = false
+        holder.var4_question4Button.isClickable = false
+    }
+    private fun fiveBlockSetNonClickable(holder: TestsViewHolder) {
+        holder.var1_question5Button.isClickable = false
+        holder.var2_question5Button.isClickable = false
+        holder.var3_question5Button.isClickable = false
+        holder.var4_question5Button.isClickable = false
     }
 
     override fun getItemCount(): Int {
