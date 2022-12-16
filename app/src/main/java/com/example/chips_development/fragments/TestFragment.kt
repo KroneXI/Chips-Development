@@ -37,13 +37,29 @@ class TestFragment : Fragment() {
 
         testsArrayList = ArrayList()
 
-        getJsonData("test.json")
+        getJsonData()
 
         testsAdapter = TestsAdapter(testsArrayList)
         testsRecyclerView.adapter = testsAdapter
     }
 
-    private fun getJsonData(fileName: String) {
+    private fun getFileForCurUser(): String {
+        val jsonString = context?.let { readFromFile(it, "users.json") }
+        val jsonArray = JSONArray(jsonString)
+        var userName = ""
+        for (i in 0 until jsonArray.length()) {
+            val jsonObj = jsonArray.getJSONObject(i)
+            val state = jsonObj.getString("status")
+            val loginUser = jsonObj.getString("login")
+            if (state == "true") {
+                userName  = loginUser
+            }
+        }
+        return userName
+    }
+
+    private fun getJsonData() {
+        val fileName = getFileForCurUser() + "test.json"
         val jsonString = context?.let { readFromFile(it, fileName) }
         val jsonArray = JSONArray(jsonString)
         for (i in 0 until jsonArray.length()) {

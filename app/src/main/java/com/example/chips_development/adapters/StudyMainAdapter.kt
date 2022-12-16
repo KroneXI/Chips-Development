@@ -98,7 +98,8 @@ class StudyMainAdapter(private val themeMainList: ArrayList<StudyMainItems>) :
 
             for (theme in themeMainList) {
                 if (theme == themeMainList[position]) {
-                    val jsonString = readFromFile(holder.itemView.context, "study.json")
+                    val fileName = getFileForCurUser(context = holder.itemView.context) + "study.json"
+                    val jsonString = readFromFile(holder.itemView.context, fileName)
                     val jsonArray = JSONArray(jsonString)
                     var js = ""
                     for (i in 0 until jsonArray.length()) {
@@ -125,7 +126,7 @@ class StudyMainAdapter(private val themeMainList: ArrayList<StudyMainItems>) :
                     )
                     val result = "[$preResult]"
 
-                    writeFileOnInternalStorage(file="study.json", data=result, context=holder.itemView.context)
+                    writeFileOnInternalStorage(file=fileName, data=result, context=holder.itemView.context)
                 }
             }
         }
@@ -179,6 +180,21 @@ class StudyMainAdapter(private val themeMainList: ArrayList<StudyMainItems>) :
         )
         fOut.write(data.toByteArray())
         fOut.close()
+    }
+
+    private fun getFileForCurUser(context: Context): String {
+        val jsonString = readFromFile(context, "users.json")
+        val jsonArray = JSONArray(jsonString)
+        var userName = ""
+        for (i in 0 until jsonArray.length()) {
+            val jsonObj = jsonArray.getJSONObject(i)
+            val state = jsonObj.getString("status")
+            val loginUser = jsonObj.getString("login")
+            if (state == "true") {
+                userName  = loginUser
+            }
+        }
+        return userName
     }
 
     private fun readFromFile(context: Context, fileName: String): String {

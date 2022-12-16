@@ -332,7 +332,6 @@ class TestsAdapter(private val testsList: ArrayList<TestsItems>) :
         holder: TestsViewHolder,
         position: Int
     ) {
-        holder.status.setImageResource(R.drawable.ic_baseline_circle_green)
         for (result in resultArray) {
             when (result) {
                 "one" -> holder.status_question1.setImageResource(R.drawable.ic_baseline_circle_green)
@@ -345,7 +344,8 @@ class TestsAdapter(private val testsList: ArrayList<TestsItems>) :
         if (resultArray.size == 5) {
             for (test in testsList) {
                 if (test == testsList[position]) {
-                    val jsonString = readFromFile(holder.itemView.context)
+                    val fileName = getFileForCurUser(context = holder.itemView.context) + "test.json"
+                    val jsonString = readFromFile(holder.itemView.context, fileName)
                     val jsonArray = JSONArray(jsonString)
                     var js = ""
                     for (i in 0 until jsonArray.length()) {
@@ -373,9 +373,10 @@ class TestsAdapter(private val testsList: ArrayList<TestsItems>) :
                     val result = "[$preResult]"
                     print(result)
 
-                    writeFileOnInternalStorage(data = result, context = holder.itemView.context)
+                    writeFileOnInternalStorage(file = fileName, data = result, context = holder.itemView.context)
                 }
             }
+            holder.status.setImageResource(R.drawable.ic_baseline_circle_green)
             Toast.makeText(holder.itemView.context, "Поздравляем! Tест пройден", Toast.LENGTH_LONG)
                 .show()
         } else Toast.makeText(
@@ -523,19 +524,34 @@ class TestsAdapter(private val testsList: ArrayList<TestsItems>) :
         val var4_question5Button: ImageButton = itemView.findViewById(R.id.var4_question5Button)
     }
 
-    private fun writeFileOnInternalStorage(data:String, context: Context) {
-        val fOut: FileOutputStream = context.openFileOutput("test.json",
+    private fun writeFileOnInternalStorage(file:String, data:String, context: Context) {
+        val fOut: FileOutputStream = context.openFileOutput(file,
             AppCompatActivity.MODE_PRIVATE
         )
         fOut.write(data.toByteArray())
         fOut.close()
     }
 
-    private fun readFromFile(context: Context): String {
+    private fun getFileForCurUser(context: Context): String {
+        val jsonString = readFromFile(context, "users.json")
+        val jsonArray = JSONArray(jsonString)
+        var userName = ""
+        for (i in 0 until jsonArray.length()) {
+            val jsonObj = jsonArray.getJSONObject(i)
+            val state = jsonObj.getString("status")
+            val loginUser = jsonObj.getString("login")
+            if (state == "true") {
+                userName  = loginUser
+            }
+        }
+        return userName
+    }
+
+    private fun readFromFile(context: Context, fileName: String): String {
         var ret = ""
         var inputStream: InputStream? = null
         try {
-            inputStream = context.openFileInput("test.json")
+            inputStream = context.openFileInput(fileName)
             if (inputStream != null) {
                 val inputStreamReader = InputStreamReader(inputStream)
                 val bufferedReader = BufferedReader(inputStreamReader)

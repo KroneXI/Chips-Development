@@ -122,8 +122,25 @@ class MainFragment : Fragment() {
         return ret
     }
 
+    private fun getFileForCurUser(): String {
+        val jsonString = context?.let { readFromFile(it, "users.json") }
+        val jsonArray = JSONArray(jsonString)
+        var userName = ""
+        for (i in 0 until jsonArray.length()) {
+            val jsonObj = jsonArray.getJSONObject(i)
+            val state = jsonObj.getString("status")
+            val loginUser = jsonObj.getString("login")
+            if (state == "true") {
+                userName  = loginUser
+            }
+        }
+        return userName
+    }
+
     private fun getMainProgress(): Int {
-        val jsonString = context?.let { readFromFile(it, "study.json") }
+        val fileName = getFileForCurUser() + "study.json"
+        print(fileName)
+        val jsonString = context?.let { readFromFile(it, fileName) }
         val jsonArray = JSONArray(jsonString)
         var js = 0
         var count = 0
@@ -141,7 +158,8 @@ class MainFragment : Fragment() {
     }
 
     private fun getTestProgress(): Int {
-        val jsonString = context?.let { readFromFile(it, "test.json") }
+        val fileName = getFileForCurUser() + "test.json"
+        val jsonString = context?.let { readFromFile(it, fileName) }
         val jsonArray = JSONArray(jsonString)
         var js = 0
         var count = 0
@@ -159,7 +177,8 @@ class MainFragment : Fragment() {
     }
 
     private fun getStudyTextView() {
-        val jsonString = context?.let { readFromFile(it, "study.json") }
+        val fileName = getFileForCurUser() + "study.json"
+        val jsonString = context?.let { readFromFile(it, fileName) }
         val jsonArray = JSONArray(jsonString)
         for (i in 0 until jsonArray.length()) {
             val jsonObj = jsonArray.getJSONObject(i)
@@ -184,7 +203,8 @@ class MainFragment : Fragment() {
     }
 
     private fun getTestTextView() {
-        val jsonString = context?.let { readFromFile(it, "test.json") }
+        val fileName = getFileForCurUser() + "test.json"
+        val jsonString = context?.let { readFromFile(it, fileName) }
         val jsonArray = JSONArray(jsonString)
         for (i in 0 until jsonArray.length()) {
             val jsonObj = jsonArray.getJSONObject(i)

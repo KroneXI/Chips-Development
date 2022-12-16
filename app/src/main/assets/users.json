@@ -1,7 +1,14 @@
 [
   {
-    "id": "name1",
+    "file": "false",
+    "status": "false",
     "login": "root",
+    "password": "toor"
+  },
+  {
+    "file": "false",
+    "status": "false",
+    "login": "root2",
     "password": "toor"
   }
 ]
