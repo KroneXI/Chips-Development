@@ -12,6 +12,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
+import com.example.chips_development.CourseActivity
 import com.example.chips_development.LoginActivity
 import com.example.chips_development.MainActivity
 import com.example.chips_development.R
@@ -21,6 +22,7 @@ import java.io.*
 class AboutFragment : Fragment() {
 
     private var changeUser: Button? = null
+    private var changeCourse: Button? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,6 +34,13 @@ class AboutFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        changeCourse = view.findViewById(R.id.changeCourse)
+        changeCourse?.setOnClickListener{
+            requireActivity().run{
+                startActivity(Intent(this, CourseActivity::class.java))
+                finish()
+            }
+        }
         changeUser = view.findViewById(R.id.changeUser)
         changeUser?.setOnClickListener{
             val jsonString = context?.let { readFromFile(it) }

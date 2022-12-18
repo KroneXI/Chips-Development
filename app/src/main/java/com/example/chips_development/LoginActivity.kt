@@ -49,7 +49,7 @@ class LoginActivity : AppCompatActivity() {
             val jsStatus = jsonObj.getString("status")
             if (jsStatus == "true") {
                 Handler(Looper.getMainLooper()).postDelayed({
-                    val intent = Intent(this, MainActivity::class.java)
+                    val intent = Intent(this, CourseActivity::class.java)
                     startActivity(intent)
                     finish()
                 }, 1)
@@ -117,7 +117,7 @@ class LoginActivity : AppCompatActivity() {
                 writeFileOnInternalStorage(file = "users.json", data = result, context = applicationContext)
 
                 Handler(Looper.getMainLooper()).postDelayed({
-                    val intent = Intent(this, MainActivity::class.java)
+                    val intent = Intent(this, CourseActivity::class.java)
                     startActivity(intent)
                     finish()
                 }, 100)
